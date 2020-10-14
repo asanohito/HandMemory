@@ -18,8 +18,18 @@ var capture; // webcam capture, managed by p5.js
 let img = [];
 
 //フレーム間の平均
-let avr_x = [];
-let avr_y = [];
+let avr_1x = new Array(5);
+let avr_2x = new Array(5);
+let avr_3x = new Array(5);
+let avr_4x = new Array(5);
+let avr_5x = new Array(5);
+let avr_1y = new Array(5);
+let avr_2y = new Array(5);
+let avr_3y = new Array(5);
+let avr_4y = new Array(5);
+let avr_5y = new Array(5);
+
+
 
 // Load the MediaPipe handpose model assets.
 handpose.load().then(function (_model) {
@@ -48,6 +58,15 @@ function setup() {
   img[4] = loadImage("../image/ISL.png");
 }
 
+//配列の平均
+const sumArray = array => {
+  let sum = 0;
+  for (let i = 0, len = array.length; i < len; i++) {
+    sum += array[i];
+  }
+  return sum/5;
+};
+
 // draw a hand object returned by handpose
 function drawShape(hands) {
   fill(255, 0, 0);
@@ -59,28 +78,56 @@ function drawShape(hands) {
     for (var j = 0; j < landmarks.length; j++) {
       var [x, y, z] = landmarks[j]; //指の位置座標取得
 
-      avr_x[j] = (avr_x[j] * 5 + x) / 6;
-      avr_y[j] = (avr_y[j] * 5 + y) / 6;
-      console.log(avr_y[4]);
 
       if (j == 4) {
-        image(img[0], avr_x[4] - 30, avr_y[4] - 30, 50, 30);
+        //配列の先頭を削除、末尾に追加
+        avr_1x.shift();
+        avr_1y.shift();
+        avr_1x.push(x);
+        avr_1y.push(y);
+        x = sumArray(avr_1x);
+        y = sumArray(avr_1y);
+        image(img[0], x - 30, y - 30, 50, 30);
         text("アンドラ",x-30,y+10);
       }
       if (j == 8) {
-        image(img[1], avr_x[8] - 30, avr_y[8] - 30, 50, 30);
+        avr_2x.shift();
+        avr_2y.shift();
+        avr_2x.push(x);
+        avr_2y.push(y);
+        x = sumArray(avr_2x);
+        y = sumArray(avr_2y);
+        image(img[1], x - 30, y- 30, 50, 30);
         text("アルバニア",x-30,y+10);
       }
       if (j == 12) {
-        image(img[2], avr_x[12] - 30, avr_y[12] - 30, 50, 30);
+        avr_3x.shift();
+        avr_3y.shift();
+        avr_3x.push(x);
+        avr_3y.push(y);
+        x = sumArray(avr_3x);
+        y = sumArray(avr_3y);
+        image(img[2], x - 30, y- 30, 50, 30);
         text("イギリス",x-30,y+10);
       }
       if (j == 16) {
-        image(img[3], avr_x[16] - 30, avr_y[16] - 30, 50, 30);
+        avr_4x.shift();
+        avr_4y.shift();
+        avr_4x.push(x);
+        avr_4y.push(y);
+        x = sumArray(avr_4x);
+        y = sumArray(avr_4y);
+        image(img[3], x - 30, y- 30, 50, 30);
         text("アイルランド",x-30,y+10);
       }
       if (j == 20) {
-        image(img[4], avr_x[20] - 30, avr_y[20] - 30, 50, 30);
+        avr_5x.shift();
+        avr_5y.shift();
+        avr_5x.push(x);
+        avr_5y.push(y);
+        x = sumArray(avr_5x);
+        y = sumArray(avr_5y);
+        image(img[4], x - 30, y - 30, 50, 30);
         text("アイスランド",x-30,y+10);
       }
     }
