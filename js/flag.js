@@ -18,16 +18,16 @@ var capture; // webcam capture, managed by p5.js
 let img = [];
 
 //フレーム間の平均
-let avr_1x = new Array(5);
-let avr_2x = new Array(5);
-let avr_3x = new Array(5);
-let avr_4x = new Array(5);
-let avr_5x = new Array(5);
-let avr_1y = new Array(5);
-let avr_2y = new Array(5);
-let avr_3y = new Array(5);
-let avr_4y = new Array(5);
-let avr_5y = new Array(5);
+let avr_1x = new Array(3);
+let avr_2x = new Array(3);
+let avr_3x = new Array(3);
+let avr_4x = new Array(3);
+let avr_5x = new Array(3);
+let avr_1y = new Array(3);
+let avr_2y = new Array(3);
+let avr_3y = new Array(3);
+let avr_4y = new Array(3);
+let avr_5y = new Array(3);
 
 
 
@@ -64,7 +64,7 @@ const sumArray = array => {
   for (let i = 0, len = array.length; i < len; i++) {
     sum += array[i];
   }
-  return sum/5;
+  return sum/3;
 };
 
 // draw a hand object returned by handpose
