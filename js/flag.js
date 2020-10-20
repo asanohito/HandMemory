@@ -57,6 +57,8 @@ function setup() {
   img[2] = loadImage("../image/GBL.png");
   img[3] = loadImage("../image/IEL.png");
   img[4] = loadImage("../image/ISL.png");
+
+  textSize(20);
 }
 
 //配列の平均
@@ -168,9 +170,9 @@ function draw() {
   strokeWeight(3);
   drawShape(myHands); // draw my hand skeleton
   pop();
-
+/*
   push();
   fill(255, 255, 0);
-  // text(statusText, 2, 60);
-  pop();
+  text(statusText, 2, 60);
+  pop();*/
 }
