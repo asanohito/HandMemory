@@ -46,7 +46,8 @@ function setup() {
   capture.elt.onloadeddata = function () {
     // console.log("video initialized");
     videoDataLoaded = true;
-    createCanvas(capture.width, capture.height);
+    createCanvas(capture.width*2, capture.height*2);
+    console.log(capture.width,capture.height);
   };
 
   capture.hide();
@@ -77,6 +78,8 @@ function drawShape(hands) {
 
     for (var j = 0; j < landmarks.length; j++) {
       var [x, y, z] = landmarks[j]; //指の位置座標取得
+      x = x*2;
+      y = y*2;
 
 
       if (j == 4) {
