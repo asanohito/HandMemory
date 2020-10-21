@@ -39,6 +39,14 @@ handpose.load().then(function (_model) {
 });
 
 function setup() {
+
+  const constraints = {
+    audio: false,
+    video: {
+      facingMode: { exact: "environment" }  // リアカメラを利用する場合
+    }
+  };
+  
   capture = createCapture(VIDEO);
 
   // this is to make sure the capture is loaded before asking handpose to take a look
