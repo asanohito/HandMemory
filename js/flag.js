@@ -40,13 +40,11 @@ handpose.load().then(function (_model) {
 
 function setup() {
 
-  const constraints = {
-    audio: false,
-    video: {
-      facingMode: { exact: "environment" }  // リアカメラを利用する場合
-    }
-  };
-  
+  // バックカメラに切り替え
+navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+.then(stream => vi.srcObject = stream)
+.catch(err => alert(`${err.name} ${err.message}`));
+
   capture = createCapture(VIDEO);
 
   // this is to make sure the capture is loaded before asking handpose to take a look
