@@ -40,10 +40,6 @@ handpose.load().then(function (_model) {
 
 function setup() {
 
-  // バックカメラに切り替え
-navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
-.then(stream => vi.srcObject = stream)
-.catch(err => alert(`${err.name} ${err.message}`));
 
   capture = createCapture(VIDEO);
 
