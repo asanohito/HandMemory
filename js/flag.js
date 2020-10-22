@@ -51,7 +51,7 @@ function setup() {
         minWidth: 1280,
         minHeight: 720,
       },
-      // facingMode: { exact: "environment" }
+      facingMode: { exact: "environment" }
     },
   };
 
