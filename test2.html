@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>HandMemory!</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8" />
+
+
+<!-- <input type="file" accept="image/*;capture=camera"> -->
+</head>
+
+<body>
+  <script>
+
+let capture;
+
+function setup() {
+  createCanvas(640, 480);
+
+  //ビデオデバイスの読み込み．詳細な設定はリファレンスを参照
+  //https://p5js.org/reference/#/p5/createCapture
+  capture = createCapture(VIDEO);
+  capture.hide();
+}
+
+function draw() {
+  background(220);
+
+  //カメラからの映像はcaptureで利用できるが一旦getしてイメージとして扱うほうが軽量
+  let img = capture.get();
+
+  //これ以降は画像の再構成の作例などを参照し，点描などが可能
+
+  image(img, 0, 0);
+}
+ </script>
+
+</body>
+
+</html>
