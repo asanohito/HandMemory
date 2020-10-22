@@ -38,11 +38,11 @@ handpose.load().then(function (_model) {
 });
 
 function preload() {
-  images[0] = loadImage('../images/ADL.png');
-  images[1] = loadImage('../images/ALL.png');
-  images[2] = loadImage('../images/GBL.png');
-  images[3] = loadImage('../images/IEL.png');
-  images[4] = loadImage('../images/meijiro.png');
+  images[0] = loadImage('images/ADL.png');
+  images[1] = loadImage('images/ALL.png');
+  images[2] = loadImage('images/GBL.png');
+  images[3] = loadImage('images/IEL.png');
+  images[4] = loadImage('images/meijiro.png');
 }
 
 function setup() {
