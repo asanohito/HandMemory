@@ -18,18 +18,16 @@ var capture; // webcam capture, managed by p5.js
 let img = [];
 
 //フレーム間の平均
-let avr_1x = new Array(3);
-let avr_2x = new Array(3);
-let avr_3x = new Array(3);
-let avr_4x = new Array(3);
-let avr_5x = new Array(3);
-let avr_1y = new Array(3);
-let avr_2y = new Array(3);
-let avr_3y = new Array(3);
-let avr_4y = new Array(3);
-let avr_5y = new Array(3);
-
-
+let avr_1x = new Array(4);
+let avr_2x = new Array(4);
+let avr_3x = new Array(4);
+let avr_4x = new Array(4);
+let avr_5x = new Array(4);
+let avr_1y = new Array(4);
+let avr_2y = new Array(4);
+let avr_3y = new Array(4);
+let avr_4y = new Array(4);
+let avr_5y = new Array(4);
 
 // Load the MediaPipe handpose model assets.
 handpose.load().then(function (_model) {
@@ -39,11 +37,14 @@ handpose.load().then(function (_model) {
 });
 
 function setup() {
-
   let constraints = {
     video: {
-        facingMode: { exact: "environment" } 
-    }
+      mandatory: {
+        minWidth: 1280,
+        minHeight: 720,
+      },
+      // facingMode: { exact: "environment" }
+    },
   };
 
   capture = createCapture(constraints);
@@ -53,8 +54,8 @@ function setup() {
   capture.elt.onloadeddata = function () {
     // console.log("video initialized");
     videoDataLoaded = true;
-    createCanvas(capture.width*2.1, capture.height*2.1);
-    console.log(capture.width,capture.height);
+    createCanvas(capture.width, capture.height);
+    console.log(capture.width, capture.height);
   };
 
   capture.hide();
@@ -65,16 +66,16 @@ function setup() {
   img[3] = loadImage("../image/IEL.png");
   img[4] = loadImage("../image/ISL.png");
 
-  textSize(20);
+  textSize(100);
 }
 
 //配列の平均
-const sumArray = array => {
+const sumArray = (array) => {
   let sum = 0;
   for (let i = 0, len = array.length; i < len; i++) {
     sum += array[i];
   }
-  return sum/3;
+  return sum / 4;
 };
 
 // draw a hand object returned by handpose
@@ -87,9 +88,8 @@ function drawShape(hands) {
 
     for (var j = 0; j < landmarks.length; j++) {
       var [x, y, z] = landmarks[j]; //指の位置座標取得
-      x = x*2.1;
-      y = y*2.1;
-
+      // x = x*2.1;
+      // y = y*2.1;
 
       if (j == 4) {
         //配列の先頭を削除、末尾に追加
@@ -100,7 +100,7 @@ function drawShape(hands) {
         x = sumArray(avr_1x);
         y = sumArray(avr_1y);
         image(img[0], x - 30, y - 30, 50, 30);
-        text("アンドラ",x-30,y+10);
+        text("アンドラ", x - 30, y + 10);
       }
       if (j == 8) {
         avr_2x.shift();
@@ -109,8 +109,8 @@ function drawShape(hands) {
         avr_2y.push(y);
         x = sumArray(avr_2x);
         y = sumArray(avr_2y);
-        image(img[1], x - 30, y- 30, 50, 30);
-        text("アルバニア",x-30,y+10);
+        image(img[1], x - 30, y - 30, 50, 30);
+        text("アルバニア", x - 30, y + 10);
       }
       if (j == 12) {
         avr_3x.shift();
@@ -119,8 +119,8 @@ function drawShape(hands) {
         avr_3y.push(y);
         x = sumArray(avr_3x);
         y = sumArray(avr_3y);
-        image(img[2], x - 30, y- 30, 50, 30);
-        text("イギリス",x-30,y+10);
+        image(img[2], x - 30, y - 30, 50, 30);
+        text("イギリス", x - 30, y + 10);
       }
       if (j == 16) {
         avr_4x.shift();
@@ -129,8 +129,8 @@ function drawShape(hands) {
         avr_4y.push(y);
         x = sumArray(avr_4x);
         y = sumArray(avr_4y);
-        image(img[3], x - 30, y- 30, 50, 30);
-        text("アイルランド",x-30,y+10);
+        image(img[3], x - 30, y - 30, 50, 30);
+        text("アイルランド", x - 30, y + 10);
       }
       if (j == 20) {
         avr_5x.shift();
@@ -140,13 +140,15 @@ function drawShape(hands) {
         x = sumArray(avr_5x);
         y = sumArray(avr_5y);
         image(img[4], x - 30, y - 30, 50, 30);
-        text("アイスランド",x-30,y+10);
+        text("アイスランド", x - 30, y + 10);
       }
     }
   }
 }
 
 function draw() {
+  let img = capture.get(); //画像にして軽量化
+
   if (handposeModel && videoDataLoaded) {
     // model and video both loaded,
 
@@ -171,13 +173,13 @@ function draw() {
 
   // first draw the debug video and annotations
   push();
-  image(capture, 0, 0, width, height);
+  image(img, 0, 0);
   fill(255, 0, 0, 80);
   stroke(255);
   strokeWeight(3);
   drawShape(myHands); // draw my hand skeleton
   pop();
-/*
+  /*
   push();
   fill(255, 255, 0);
   text(statusText, 2, 60);

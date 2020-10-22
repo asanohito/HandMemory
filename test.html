@@ -2,46 +2,45 @@
 <html lang="en">
 
 <head>
-  <title>HandMemory!</title>
-  <style>
-  
+    <title>HandMemory!</title>
+    <style>
+
     </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
-  <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
-  <meta charset="utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+    <meta charset="utf-8" />
 
 
 </head>
 
 <body>
-  <script>
-let capture;
+    <script>
+        let img;
 
-function setup() {
-  createCanvas(480, 120);
-  let constraints = {
-    video: {
-        // facingMode: { exact: "environment" } 
-    }
-  };
-//   createCapture(constraints, function(stream) {
-//     console.log(stream);
-//   });
-capture = createCapture(constraints);
-}
+        function preload() {
+            img = loadImage('image/GBL.png');
+        }
+        function setup() {
 
-function draw() {
-  background(220);
+            image(img,0,0,200,150);
 
-  //カメラからの映像はcaptureで利用できるが一旦getしてイメージとして扱うほうが軽量
-  let img = capture.get();
-
-  //これ以降は画像の再構成の作例などを参照し，点描などが可能
-
-  image(img, 0, 0);
-}
- </script>
+            // createCanvas(480, 120);
+            // let constraints = {
+            //     video: {
+            //         mandatory: {
+            //             minWidth: 1280,
+            //             minHeight: 720
+            //         },
+            //         optional: [{ maxFrameRate: 10 }]
+            //     },
+            //     // audio: true
+            // };
+            // createCapture(constraints, function (stream) {
+            //     console.log(stream);
+            // });
+        }
+    </script>
 
 </body>
 
