@@ -16,14 +16,14 @@
 
 <body>
     <script>
-        let img;
+        let img = [];
 
         function preload() {
-            img = loadImage('image/GBL.png');
+            img[0] = loadImage('image/GBL.png');
         }
         function setup() {
 
-            image(img,0,0,200,150);
+            image(img[0],0,0,200,150);
 
             // createCanvas(480, 120);
             // let constraints = {

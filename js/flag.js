@@ -36,6 +36,14 @@ handpose.load().then(function (_model) {
   handposeModel = _model;
 });
 
+function preload() {
+  img[0] = loadImage('../image/ADL.png');
+  img[1] = loadImage('../image/ALL.png');
+  img[2] = loadImage('../image/GBL.png');
+  img[3] = loadImage('../image/IEL.png');
+  img[4] = loadImage('../image/ISL.png');
+}
+
 function setup() {
   let constraints = {
     video: {
@@ -59,12 +67,6 @@ function setup() {
   };
 
   capture.hide();
-
-  img[0] = loadImage("../image/ADL.png");
-  img[1] = loadImage("../image/ALL.png");
-  img[2] = loadImage("../image/GBL.png");
-  img[3] = loadImage("../image/IEL.png");
-  img[4] = loadImage("../image/ISL.png");
 
   textSize(100);
 }
