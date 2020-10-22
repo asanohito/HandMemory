@@ -47,8 +47,6 @@ function preload() {
 
 function setup() {
 
- 0
-
   let constraints = {
     video: {
       mandatory: {
