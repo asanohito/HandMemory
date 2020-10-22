@@ -18,9 +18,9 @@
 </head>
 
 <body>
-    <video id="camera" width="300" height="200"></video>
+    <!-- <video id="camera" width="300" height="200"></video> -->
   <script>
-
+/*
 let capture;
 
 window.onload = function() {
@@ -37,7 +37,7 @@ window.onload = function() {
   };
    /**
    * カメラを<video>と同期
-   */
+   
    navigator.mediaDevices.getUserMedia(constraints)
   .then( (stream) => {
     video.srcObject = stream;
@@ -50,17 +50,19 @@ window.onload = function() {
     document.write(err.name + ": " + err.message);
   });
 
-};
+};*/
 
 
 function setup() {
-  createCanvas(640, 480);
-
-  //ビデオデバイスの読み込み．詳細な設定はリファレンスを参照
-
-  capture = createCapture(VIDEO);
-  capture.hide();
-  
+  createCanvas(480, 120);
+  let constraints = {
+    video: {
+        facingMode: { exact: "environment" } 
+    }
+  };
+  createCapture(constraints, function(stream) {
+    console.log(stream);
+  });
 }
 
 function draw() {
