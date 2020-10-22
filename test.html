@@ -4,9 +4,7 @@
 <head>
   <title>HandMemory!</title>
   <style>
-    canvas, video{
-      border: 1px solid gray;
-    }
+  
     </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
@@ -14,55 +12,23 @@
   <meta charset="utf-8" />
 
 
-<!-- <input type="file" accept="image/*;capture=camera"> -->
 </head>
 
 <body>
-    <!-- <video id="camera" width="300" height="200"></video> -->
   <script>
-/*
 let capture;
-
-window.onload = function() {
-    const video  = document.querySelector("#camera");
-
-    const constraints = {
-    audio: false,
-    video: {
-      width: 300,
-      height: 200,
-      facingMode: "user"   // フロントカメラを利用する
-    //   facingMode: { exact: "environment" }  // リアカメラを利用する場合
-    }
-  };
-   /**
-   * カメラを<video>と同期
-   
-   navigator.mediaDevices.getUserMedia(constraints)
-  .then( (stream) => {
-    video.srcObject = stream;
-    video.onloadedmetadata = (e) => {
-      video.play();
-    };
-  })
-  .catch( (err) => {
-    console.log(err.name + ": " + err.message);
-    document.write(err.name + ": " + err.message);
-  });
-
-};*/
-
 
 function setup() {
   createCanvas(480, 120);
   let constraints = {
     video: {
-        facingMode: { exact: "environment" } 
+        // facingMode: { exact: "environment" } 
     }
   };
-  createCapture(constraints, function(stream) {
-    console.log(stream);
-  });
+//   createCapture(constraints, function(stream) {
+//     console.log(stream);
+//   });
+capture = createCapture(constraints);
 }
 
 function draw() {

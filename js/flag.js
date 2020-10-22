@@ -45,11 +45,8 @@ function setup() {
         facingMode: { exact: "environment" } 
     }
   };
-  createCapture(constraints, function(stream) {
-    console.log(stream);
-  });
 
-  capture = createCapture(VIDEO);
+  capture = createCapture(constraints);
 
   // this is to make sure the capture is loaded before asking handpose to take a look
   // otherwise handpose will be very unhappy
