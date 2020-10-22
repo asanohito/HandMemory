@@ -19,16 +19,36 @@
 let capture;
 
 window.onload = function() {
-    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
-         .then(stream => vi.srcObject = stream)
-         .catch(err => alert(`${err.name} ${err.message}`));
+    const video  = document.querySelector("#camera");
+
+    const constraints = {
+    audio: false,
+    video: {
+      width: 300,
+      height: 200,
+    //   facingMode: "user"   // フロントカメラを利用する
+      facingMode: { exact: "environment" }  // リアカメラを利用する場合
+    }
+  };
+   /**
+   * カメラを<video>と同期
+   */
+   navigator.mediaDevices.getUserMedia(constraints)
+  .then( (stream) => {
+    video.srcObject = stream;
+    video.onloadedmetadata = (e) => {
+      video.play();
+    };
+  })
+  .catch( (err) => {
+    console.log(err.name + ": " + err.message);
+  });
+
 };
+
 
 function setup() {
   createCanvas(640, 480);
-
-  
-
 
   //ビデオデバイスの読み込み．詳細な設定はリファレンスを参照
 
