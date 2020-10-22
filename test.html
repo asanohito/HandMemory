@@ -19,11 +19,11 @@
         let img = [];
 
         function preload() {
-            img[0] = loadImage('image/GBL.png');
+            img[0] = loadImage('images/GBL.png');
         }
         function setup() {
-
-            image(img[0],0,0,200,150);
+            createCanvas(img[0].width, img[0].height )
+            image(img[0],0,0,img[0].width,img[0].height);
 
             // createCanvas(480, 120);
             // let constraints = {

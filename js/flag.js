@@ -15,7 +15,8 @@ var myHands = []; // hands detected by mediapipe
 var capture; // webcam capture, managed by p5.js
 
 //画像
-let img = [];
+let images = [];
+
 
 //フレーム間の平均
 let avr_1x = new Array(4);
@@ -37,14 +38,17 @@ handpose.load().then(function (_model) {
 });
 
 function preload() {
-  img[0] = loadImage('../image/ADL.png');
-  img[1] = loadImage('../image/ALL.png');
-  img[2] = loadImage('../image/GBL.png');
-  img[3] = loadImage('../image/IEL.png');
-  img[4] = loadImage('../image/ISL.png');
+  images[0] = loadImage('../images/ADL.png');
+  images[1] = loadImage('../images/ALL.png');
+  images[2] = loadImage('../images/GBL.png');
+  images[3] = loadImage('../images/IEL.png');
+  images[4] = loadImage('../images/meijiro.png');
 }
 
 function setup() {
+
+ 0
+
   let constraints = {
     video: {
       mandatory: {
@@ -101,7 +105,7 @@ function drawShape(hands) {
         avr_1y.push(y);
         x = sumArray(avr_1x);
         y = sumArray(avr_1y);
-        image(img[0], x - 30, y - 30, 50, 30);
+        image(images[0], x - 30, y - 30, 50, 30);
         text("アンドラ", x - 30, y + 10);
       }
       if (j == 8) {
@@ -111,7 +115,7 @@ function drawShape(hands) {
         avr_2y.push(y);
         x = sumArray(avr_2x);
         y = sumArray(avr_2y);
-        image(img[1], x - 30, y - 30, 50, 30);
+        image(images[1], x - 30, y - 30, 50, 30);
         text("アルバニア", x - 30, y + 10);
       }
       if (j == 12) {
@@ -121,7 +125,7 @@ function drawShape(hands) {
         avr_3y.push(y);
         x = sumArray(avr_3x);
         y = sumArray(avr_3y);
-        image(img[2], x - 30, y - 30, 50, 30);
+        image(images[2], x - 30, y - 30, 50, 30);
         text("イギリス", x - 30, y + 10);
       }
       if (j == 16) {
@@ -131,7 +135,7 @@ function drawShape(hands) {
         avr_4y.push(y);
         x = sumArray(avr_4x);
         y = sumArray(avr_4y);
-        image(img[3], x - 30, y - 30, 50, 30);
+        image(images[3], x - 30, y - 30, 50, 30);
         text("アイルランド", x - 30, y + 10);
       }
       if (j == 20) {
@@ -141,7 +145,7 @@ function drawShape(hands) {
         avr_5y.push(y);
         x = sumArray(avr_5x);
         y = sumArray(avr_5y);
-        image(img[4], x - 30, y - 30, 50, 30);
+        image(images[4], x - 30, y - 30, 50, 30);
         text("アイスランド", x - 30, y + 10);
       }
     }
@@ -149,6 +153,7 @@ function drawShape(hands) {
 }
 
 function draw() {
+  image(images[0],0,0,images[0].width,images[0].height);
   let img = capture.get(); //画像にして軽量化
 
   if (handposeModel && videoDataLoaded) {
