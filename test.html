@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    
   <script>
 
 let capture;
@@ -42,11 +43,13 @@ window.onload = function() {
   })
   .catch( (err) => {
     console.log(err.name + ": " + err.message);
+    document.write(err.name + ": " + err.message);
   });
 
+  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 };
 
-
+/*
 function setup() {
   createCanvas(640, 480);
 
@@ -66,7 +69,7 @@ function draw() {
   //これ以降は画像の再構成の作例などを参照し，点描などが可能
 
   image(img, 0, 0);
-}
+}*/
  </script>
 
 </body>
