@@ -18,13 +18,23 @@
 
 let capture;
 
+window.onload = function() {
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+         .then(stream => vi.srcObject = stream)
+         .catch(err => alert(`${err.name} ${err.message}`));
+};
+
 function setup() {
   createCanvas(640, 480);
 
+  
+
+
   //ビデオデバイスの読み込み．詳細な設定はリファレンスを参照
-  //https://p5js.org/reference/#/p5/createCapture
+
   capture = createCapture(VIDEO);
   capture.hide();
+  
 }
 
 function draw() {
