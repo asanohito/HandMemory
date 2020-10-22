@@ -49,6 +49,8 @@ function setup() {
     console.log(stream);
   });
 
+  capture = createCapture(VIDEO);
+
   // this is to make sure the capture is loaded before asking handpose to take a look
   // otherwise handpose will be very unhappy
   capture.elt.onloadeddata = function () {
