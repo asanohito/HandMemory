@@ -24,11 +24,24 @@ let avr_2x = new Array(4);
 let avr_3x = new Array(4);
 let avr_4x = new Array(4);
 let avr_5x = new Array(4);
+
 let avr_1y = new Array(4);
 let avr_2y = new Array(4);
 let avr_3y = new Array(4);
 let avr_4y = new Array(4);
 let avr_5y = new Array(4);
+
+let avr_6x = new Array(4);
+let avr_7x = new Array(4);
+let avr_8x = new Array(4);
+let avr_9x = new Array(4);
+let avr_10x = new Array(4);
+let avr_6y = new Array(4);
+let avr_7y = new Array(4);
+let avr_8y = new Array(4);
+let avr_9y = new Array(4);
+let avr_10y = new Array(4);
+
 
 // Load the MediaPipe handpose model assets.
 handpose.load().then(function (_model) {
@@ -43,6 +56,12 @@ function preload() {
   images[2] = loadImage('images/GBL.png');
   images[3] = loadImage('images/IEL.png');
   images[4] = loadImage('images/ISL.png');
+  images[5] = loadImage('images/ITL.png');
+  images[6] = loadImage('images/ELL.png');
+  images[7] = loadImage('images/ATL.png');
+  images[8] = loadImage('images/NLL.png');
+  images[9] = loadImage('images/MKL.png');
+
 }
 
 function setup() {
@@ -95,6 +114,18 @@ function drawShape(hands) {
       // x = x*2.1;
       // y = y*2.1;
 
+      if (j == 2) {
+        //配列の先頭を削除、末尾に追加
+        avr_6x.shift();
+        avr_6y.shift();
+        avr_6x.push(x);
+        avr_6y.push(y);
+        x = sumArray(avr_6x);
+        y = sumArray(avr_6y);
+        image(images[5], x - 30, y - 30, 50, 30);
+        text("イタリア", x - 30, y + 10);
+      }
+
       if (j == 4) {
         //配列の先頭を削除、末尾に追加
         avr_1x.shift();
@@ -106,6 +137,17 @@ function drawShape(hands) {
         image(images[0], x - 30, y - 30, 50, 30);
         text("アンドラ", x - 30, y + 10);
       }
+      if (j == 5) {
+        //配列の先頭を削除、末尾に追加
+        avr_7x.shift();
+        avr_7y.shift();
+        avr_7x.push(x);
+        avr_7y.push(y);
+        x = sumArray(avr_7x);
+        y = sumArray(avr_7y);
+        image(images[6], x - 30, y - 30, 50, 30);
+        text("エストニア", x - 30, y + 10);
+      }
       if (j == 8) {
         avr_2x.shift();
         avr_2y.shift();
@@ -115,6 +157,17 @@ function drawShape(hands) {
         y = sumArray(avr_2y);
         image(images[1], x - 30, y - 30, 50, 30);
         text("アルバニア", x - 30, y + 10);
+      }
+      if (j == 9) {
+        //配列の先頭を削除、末尾に追加
+        avr_8x.shift();
+        avr_8y.shift();
+        avr_8x.push(x);
+        avr_8y.push(y);
+        x = sumArray(avr_8x);
+        y = sumArray(avr_8y);
+        image(images[7], x - 30, y - 30, 50, 30);
+        text("オーストリア", x - 30, y + 10);
       }
       if (j == 12) {
         avr_3x.shift();
@@ -126,6 +179,17 @@ function drawShape(hands) {
         image(images[2], x - 30, y - 30, 50, 30);
         text("イギリス", x - 30, y + 10);
       }
+      if (j == 13) {
+        //配列の先頭を削除、末尾に追加
+        avr_9x.shift();
+        avr_9y.shift();
+        avr_9x.push(x);
+        avr_9y.push(y);
+        x = sumArray(avr_9x);
+        y = sumArray(avr_9y);
+        image(images[8], x - 30, y - 30, 50, 30);
+        text("オランダ", x - 30, y + 10);
+      }
       if (j == 16) {
         avr_4x.shift();
         avr_4y.shift();
@@ -135,6 +199,17 @@ function drawShape(hands) {
         y = sumArray(avr_4y);
         image(images[3], x - 30, y - 30, 50, 30);
         text("アイルランド", x - 30, y + 10);
+      }
+      if (j == 17) {
+        //配列の先頭を削除、末尾に追加
+        avr_10x.shift();
+        avr_10y.shift();
+        avr_10x.push(x);
+        avr_10y.push(y);
+        x = sumArray(avr_10x);
+        y = sumArray(avr_10y);
+        image(images[9], x - 30, y - 30, 50, 30);
+        text("北マケドニア", x - 30, y + 10);
       }
       if (j == 20) {
         avr_5x.shift();
