@@ -57,7 +57,7 @@ function preload() {
   images[3] = loadImage('images/IEL.png');
   images[4] = loadImage('images/ISL.png');
   images[5] = loadImage('images/ITL.png');
-  images[6] = loadImage('images/ELL.png');
+  images[6] = loadImage('images/EEL.png');
   images[7] = loadImage('images/ATL.png');
   images[8] = loadImage('images/NLL.png');
   images[9] = loadImage('images/MKL.png');
