@@ -47,8 +47,6 @@ function handle_touch(event) {
       var touch = event.touches.item(i);
       // Touch.force: 圧力を0.0〜1.0の値で取得する
       add("touch-area", "Touch[" + i + "].force", touch.force);
-      add("touch-area", "Touch[" + i + "].clientX", touch.clientX);
-      add("touch-area", "Touch[" + i + "].clientY", touch.clientY);
     }
   } catch(e) {
     add("touch-area", "error", e);
@@ -56,7 +54,6 @@ function handle_touch(event) {
 }
 
 window.onload = function() {
-  set_info();
   // 画面に触れはじめたときのイベントに関数を登録
   document.body.addEventListener("touchstart", handle_touch);
   // 画面上で移動しているときのイベントに関数を登録
