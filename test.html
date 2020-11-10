@@ -1,47 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <title>HandMemory!</title>
-    <style>
+<meta charset="utf-8">
+<title>Your touch device information</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-    </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
-    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
-    <meta charset="utf-8" />
+<style>
+  html, body, div { padding: 0; margin: 0; border: 0; }
+  html, body { width: 100%; height: 100%; }
+</style>
 
+<script>
+
+// 表示領域をクリアする
+function clear(id) {
+  document.getElementById(id).textContent = "";
+}
+
+// 表示領域に情報を追加する
+function add(id, key, value) {
+  const e = document.createElement("div");
+  document.getElementById(id).appendChild(e);
+  e.textContent = key + "=[" + value + "]";
+}
+
+// ブラウザ情報を表示する
+function set_info() {
+  const keys = [
+    "window.navigator.userAgent",
+    "window.navigator.maxTouchPoints",
+    "window.parent.screen.width",
+    "window.parent.screen.height",
+    "window.screen.width",
+    "window.screen.height",
+  ];
+  for (var key of keys) {
+    add("information-area", key, eval(key));
+  }
+}
+
+// タッチデバイスの情報を表示する
+function handle_touch(event) {
+  clear("touch-area");
+  try {
+    for (var i=0; i<event.touches.length; i++) {
+      var touch = event.touches.item(i);
+      // Touch.force: 圧力を0.0〜1.0の値で取得する
+      add("touch-area", "Touch[" + i + "].force", touch.force);
+      add("touch-area", "Touch[" + i + "].clientX", touch.clientX);
+      add("touch-area", "Touch[" + i + "].clientY", touch.clientY);
+    }
+  } catch(e) {
+    add("touch-area", "error", e);
+  }
+}
+
+window.onload = function() {
+  set_info();
+  // 画面に触れはじめたときのイベントに関数を登録
+  document.body.addEventListener("touchstart", handle_touch);
+  // 画面上で移動しているときのイベントに関数を登録
+  document.body.addEventListener("touchmove", handle_touch);
+};
+
+</script>
 
 </head>
-
 <body>
-    <script>
-        let img = [];
 
-        function preload() {
-            img[0] = loadImage('images/GBL.png');
-        }
-        function setup() {
-            createCanvas(img[0].width, img[0].height )
-            image(img[0],0,0,img[0].width,img[0].height);
+<h1>Your touch device information</h1>
 
-            // createCanvas(480, 120);
-            // let constraints = {
-            //     video: {
-            //         mandatory: {
-            //             minWidth: 1280,
-            //             minHeight: 720
-            //         },
-            //         optional: [{ maxFrameRate: 10 }]
-            //     },
-            //     // audio: true
-            // };
-            // createCapture(constraints, function (stream) {
-            //     console.log(stream);
-            // });
-        }
-    </script>
+<div id="area">
+  <div id="information-area"></div>
+  <div id="touch-area"></div>
+</div>
 
 </body>
-
 </html>
