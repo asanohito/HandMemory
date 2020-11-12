@@ -25,19 +25,19 @@ function add(id, key, value) {
 }
 
 // ブラウザ情報を表示する
-// function set_info() {
-//   const keys = [
-//     "window.navigator.userAgent",
-//     "window.navigator.maxTouchPoints",
-//     "window.parent.screen.width",
-//     "window.parent.screen.height",
-//     "window.screen.width",
-//     "window.screen.height",
-//   ];
-//   for (var key of keys) {
-//     add("information-area", key, eval(key));
-//   }
-// }
+function set_info() {
+ /* const keys = [
+    "window.navigator.userAgent",
+    "window.navigator.maxTouchPoints",
+    "window.parent.screen.width",
+    "window.parent.screen.height",
+    "window.screen.width",
+    "window.screen.height",
+  ];
+  for (var key of keys) {
+    add("information-area", key, eval(key));
+  }*/
+}
 
 // タッチデバイスの情報を表示する
 function handle_touch(event) {
@@ -47,6 +47,8 @@ function handle_touch(event) {
       var touch = event.touches.item(i);
       // Touch.force: 圧力を0.0〜1.0の値で取得する
       add("touch-area", "Touch[" + i + "].force", touch.force);
+      add("touch-area", "Touch[" + i + "].clientX", touch.clientX);
+      add("touch-area", "Touch[" + i + "].clientY", touch.clientY);
     }
   } catch(e) {
     add("touch-area", "error", e);
@@ -54,13 +56,12 @@ function handle_touch(event) {
 }
 
 window.onload = function() {
-  // set_info();
+  set_info();
   // 画面に触れはじめたときのイベントに関数を登録
   document.body.addEventListener("touchstart", handle_touch);
   // 画面上で移動しているときのイベントに関数を登録
-//   document.body.addEventListener("touchmove", handle_touch);
+  document.body.addEventListener("touchmove", handle_touch);
 };
-
 
 </script>
 
