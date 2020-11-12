@@ -108,7 +108,7 @@ const sumArray = (array) => {
   }
   return sum / 4;
 };
-
+.*
 // タッチデバイスの情報
 function handle_touch(event) {
   // clear("touch-area");
@@ -127,7 +127,7 @@ function handle_touch(event) {
     // add("touch-area", "error", e);
   }
 }
-
+*/
 
 // draw a hand object returned by handpose
 function drawShape(hands) {
