@@ -12,7 +12,7 @@
 
 <script>
 
-let hands = left;
+var hands = true;
 
 // 表示領域をクリアする
 function clear(id) {
@@ -36,9 +36,9 @@ function handle_touch(event) {
       // Touch.force: 圧力を0.0〜1.0の値で取得する
       add("touch-area", "Touch[" + i + "].force", touch.force);
       if(touch.force>=0.1){
-        hands = right;
+        hands = false;
       }else{
-        hands = left;
+        hands = true;
       }
     }
   } catch(e) {
