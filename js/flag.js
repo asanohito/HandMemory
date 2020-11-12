@@ -66,11 +66,11 @@ function preload() {
   images[9] = loadImage('images/MKL.png');
 
 }
-
+/*
 window.onload = function() {
   // 画面に触れはじめたときのイベントに関数を登録
   document.body.addEventListener("touchstart", handle_touch);
-};
+};*/
 
 function setup() {
 
