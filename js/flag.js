@@ -99,6 +99,7 @@ function setup() {
   button = createButton("チェンジ");
   button.position(20, 450);
   button.mousePressed(changehand);
+  button.class("changebutton");
 }
 
 function changehand(){
