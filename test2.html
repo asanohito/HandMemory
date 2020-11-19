@@ -1,31 +1,39 @@
-<!DOCTYPE html><html><head>
-  <meta charset="UTF-8">
-  <title>タッチイベント検出</title>
-  <meta name="viewport" content="width=device-width">
-  <style> canvas{ border: solid 1px red; } </style>
-  </head>
-  <body>
-  <canvas id="ac" width="300" height="300"></canvas>
-  <div id="disp"></div>
+<!DOCTYPE html>
+<html>
 
-  
-  <script>
-  var ac = document.getElementById("ac"); // canvas要素のオブジェクトを取得
-  ac.ontouchstart = function (e) {
-      e.preventDefault();     // デフォルトイベントをキャンセル
-      var s = "";             // 変数sを初期化
-       
-      // 引数のtouchesプロパティは配列の要素数（触れている指の数）だけ繰り返し処理
-      for (var i = 0; i < e.touches.length; i++) {
-          var t = e.touches[i];       // 触れている指に関する情報を取得
-        
-          s += "[" + i + "]";
-          s += "x=" + t.pageX + ",";
-          s += "y=" + t.pageY + "<br>";
-      }
-      document.getElementById("disp").innerHTML = s;  // 生成した文字列を画面に表示
-  };
-  </script>
-  </body></html>
-   
-  
+<head>
+    <meta charset="UTF-8">
+    <title>テスト</title>
+    <meta name="viewport" content="width=device-width">
+    <style>
+        canvas {
+            border: solid 1px red;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
+</head>
+
+<body>
+    <canvas id="ac" width="300" height="300"></canvas>
+    <div id="disp"></div>
+
+
+    <script>
+        function setup() {
+            createCanvas(100, 100);
+            background(0);
+            button = createButton('click me');
+            button.position(19, 19);
+            button.mousePressed(changeBG);
+        }
+
+        function changeBG() {
+            let val = random(255);
+            background(val);
+        }
+
+    </script>
+</body>
+
+</html>
