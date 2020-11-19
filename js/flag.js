@@ -101,7 +101,7 @@ function setup() {
   button.mousePressed(changehand);
 }
 
-function canagehand(){
+function changehand(){
   right_hand = !right_hand;
 }
 
