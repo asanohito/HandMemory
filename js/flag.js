@@ -138,18 +138,6 @@ function drawShape(hands) {
       // x = x*2.1;
       // y = y*2.1;
 
-      //       if (j == 2) {
-      //         //配列の先頭を削除、末尾に追加
-      //         avr_6x.shift();
-      //         avr_6y.shift();
-      //         avr_6x.push(x);
-      //         avr_6y.push(y);
-      //         x = sumArray(avr_6x);
-      //         y = sumArray(avr_6y);
-      //         image(images[5], x - 30, y - 30, 50, 30);
-      //         text("イタリア", x - 30, y + 10);
-      //       }
-
       if (j == 4) {
         //配列の先頭を削除、末尾に追加
         avr_1x.shift();
@@ -158,8 +146,13 @@ function drawShape(hands) {
         avr_1y.push(y);
         x = sumArray(avr_1x);
         y = sumArray(avr_1y);
-        image(images[0], x - 30, y - 30, 50, 30);
-        text("アンドラ", x - 30, y + 10);
+        if (right_hand) {
+          image(images[0], x - 30, y - 30, 50, 30);
+          text("アンドラ", x - 30, y + 10);
+        } else {
+          image(images[5], x - 30, y - 30, 50, 30);
+          text("イタリア", x - 30, y + 10);
+        }
       }
       //       if (j == 5) {
       //         //配列の先頭を削除、末尾に追加
@@ -179,8 +172,13 @@ function drawShape(hands) {
         avr_2y.push(y);
         x = sumArray(avr_2x);
         y = sumArray(avr_2y);
-        image(images[1], x - 30, y - 30, 50, 30);
-        text("アルバニア", x - 30, y + 10);
+        if (right_hand) {
+          image(images[1], x - 30, y - 30, 50, 30);
+          text("アルバニア", x - 30, y + 10);
+        } else {
+          image(images[6], x - 30, y - 30, 50, 30);
+          text("エストニア", x - 30, y + 10);
+        }
       }
       //       if (j == 9) {
       //         //配列の先頭を削除、末尾に追加
@@ -200,8 +198,13 @@ function drawShape(hands) {
         avr_3y.push(y);
         x = sumArray(avr_3x);
         y = sumArray(avr_3y);
-        image(images[2], x - 30, y - 30, 50, 30);
-        text("イギリス", x - 30, y + 10);
+        if (right_hand) {
+          image(images[2], x - 30, y - 30, 50, 30);
+          text("イギリス", x - 30, y + 10);
+        } else {
+          image(images[7], x - 30, y - 30, 50, 30);
+          text("オーストリア", x - 30, y + 10);
+        }
       }
       //       if (j == 13) {
       //         //配列の先頭を削除、末尾に追加
@@ -221,8 +224,13 @@ function drawShape(hands) {
         avr_4y.push(y);
         x = sumArray(avr_4x);
         y = sumArray(avr_4y);
-        image(images[3], x - 30, y - 30, 50, 30);
-        text("アイルランド", x - 30, y + 10);
+        if (right_hand) {
+          image(images[3], x - 30, y - 30, 50, 30);
+          text("アイルランド", x - 30, y + 10);
+        } else {
+          image(images[8], x - 30, y - 30, 50, 30);
+        }
+        text("オランダ", x - 30, y + 10);
       }
       //       if (j == 17) {
       //         //配列の先頭を削除、末尾に追加
@@ -242,8 +250,13 @@ function drawShape(hands) {
         avr_5y.push(y);
         x = sumArray(avr_5x);
         y = sumArray(avr_5y);
-        image(images[4], x - 30, y - 30, 50, 30);
-        text("アイスランド", x - 30, y + 10);
+        if (right_hand) {
+          image(images[4], x - 30, y - 30, 50, 30);
+          text("アイスランド", x - 30, y + 10);
+        } else {
+          image(images[9], x - 30, y - 30, 50, 30);
+          text("北マケドニア", x - 30, y + 10);
+        }
       }
     }
   }
