@@ -98,6 +98,7 @@ function setup() {
 
   button = createButton("チェンジ");
   button.position(20, 450);
+  button.position(350, 450);
   button.mousePressed(changehand);
   button.class("changebutton");
 }
@@ -239,8 +240,8 @@ function drawShape(hands) {
           text("アイルランド", x - 30, y + 10);
         } else {
           image(images[8], x - 30, y - 30, 50, 30);
+          text("オランダ", x - 30, y + 10);
         }
-        text("オランダ", x - 30, y + 10);
       }
       //       if (j == 17) {
       //         //配列の先頭を削除、末尾に追加
