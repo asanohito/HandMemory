@@ -87,7 +87,8 @@ function setup() {
   capture.elt.onloadeddata = function () {
     // console.log("video initialized");
     videoDataLoaded = true;
-    createCanvas(capture.width, capture.height);
+    // createCanvas(capture.width, capture.height);
+    createCanvas(980, 395);
     console.log(capture.width, capture.height);
   };
 
@@ -290,7 +291,7 @@ function draw() {
 
   // first draw the debug video and annotations
   push();
-  image(img, 0, 0);
+  image(img, 170, 0);
   fill(255, 0, 0, 80);
   stroke(255);
   strokeWeight(3);
