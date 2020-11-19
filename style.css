@@ -6,3 +6,11 @@ html, body {
 canvas {
   display: block;
 }
+
+.change {
+	font-family: monospace;
+	background-color: #FF0000;
+	color: #FFFFFF;
+	font-size: 18pt;
+	padding: 10px;
+}

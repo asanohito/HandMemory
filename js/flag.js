@@ -88,7 +88,7 @@ function setup() {
     // console.log("video initialized");
     videoDataLoaded = true;
     // createCanvas(capture.width, capture.height);
-    createCanvas(980, 395);
+    createCanvas(980, 482);
     console.log(capture.width, capture.height);
   };
 
@@ -97,7 +97,7 @@ function setup() {
   textSize(100);
 
   button = createButton("チェンジ");
-  button.position(20, 460);
+  button.position(20, 450);
   button.mousePressed(changehand);
 }
 
