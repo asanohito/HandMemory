@@ -98,6 +98,11 @@ function setup() {
 
   button = createButton("チェンジ");
   button.position(20, 460);
+  button.mousePressed(changehand);
+}
+
+function canagehand(){
+  right_hand = !right_hand;
 }
 
 //配列の平均
