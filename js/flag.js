@@ -97,8 +97,8 @@ function setup() {
   textSize(100);
 
   button = createButton("チェンジ");
-  button.position(20, 450);
-  button.position(350, 450);
+  button.position(85, 240);
+  button.position(397, 240);
   button.mousePressed(changehand);
   button.class("changebutton");
 }
