@@ -73,8 +73,8 @@ function setup() {
   let constraints = {
     video: {
       mandatory: {
-        minWidth: 1280,
-        minHeight: 720,
+        // minWidth: 1280,
+        // minHeight: 720,
       },
       facingMode: { exact: "environment" },
     },
@@ -88,7 +88,7 @@ function setup() {
     // console.log("video initialized");
     videoDataLoaded = true;
     // createCanvas(capture.width, capture.height);
-    createCanvas(980, 482);
+    createCanvas(980, 482); //スマホ横にしたときの可視領域
     console.log(capture.width, capture.height);
   };
 
