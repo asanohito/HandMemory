@@ -108,6 +108,11 @@ function setup() {
 
 function changehand(){
   right_hand = !right_hand;
+  if(right_hand){
+  button.style.backgroundColor = "red";
+  }else{
+    button.style.backgroundColor = "#00b8ff";
+  }
 }
 
 //配列の平均
