@@ -97,10 +97,13 @@ function setup() {
   textSize(100);
 
   button = createButton("チェンジ");
+  button2 = createButton("チェンジ");
   button.position(0, 0);
-  // button.position(397, 0);
+  button2.position(397, 0);
   button.mousePressed(changehand);
+  button2.mousePressed(changehand);
   button.class("changebutton");
+  button2.class("changebutton");
 }
 
 function changehand(){
