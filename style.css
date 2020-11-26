@@ -11,7 +11,7 @@ canvas {
 	font-family: "Hiragino Kaku Gothic ProN","Hiragino Sans","メイリオ", sans-serif;
 	background-color: #00b8ff;
 	color: #FFFFFF;
-	font-size: 1pt;
-	padding: 240px 25px 240px 25px;
+	font-size: 0pt;
+	padding: 240px 85px 240px 85px;
 	border-radius: 20px;
 }
