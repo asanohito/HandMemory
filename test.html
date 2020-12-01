@@ -1,65 +1,64 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8">
-<title>Your touch device information</title>
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta charset="utf-8">
+  <title>Your touch device information</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<style>
-  html, body, div { padding: 0; margin: 0; border: 0; }
-  html, body { width: 100%; height: 100%; }
-</style>
-
-<script>
-
-var hands = true;
-
-// 表示領域をクリアする
-function clear(id) {
-  document.getElementById(id).textContent = "";
-}
-
-// 表示領域に情報を追加する
-function add(id, key, value) {
-  const e = document.createElement("div");
-  document.getElementById(id).appendChild(e);
-  e.textContent = key + "=[" + value + "]";
-}
+  <style>
 
 
-// タッチデバイスの情報を表示する
-function handle_touch(event) {
-  clear("touch-area");
-  try {
-    for (var i=0; i<event.touches.length; i++) {
-      var touch = event.touches.item(i);
-      // Touch.force: 圧力を0.0〜1.0の値で取得する
-      add("touch-area", "Touch[" + i + "].force", touch.force);
-      if(touch.force>=0.1){
-        hands = false;
-      }else{
-        hands = true;
-      }
-    }
-  } catch(e) {
-    add("touch-area", "error", e);
-  }
-}
+  </style>
 
-window.onload = function() {
-  // 画面に触れはじめたときのイベントに関数を登録
-  document.body.addEventListener("touchstart", handle_touch);
-};
+  <script>
 
-</script>
+    var el_hitarea = document.getElementById('hitarea');
+    var el_eventname = document.getElementById('eventname');
+    var el_x = document.getElementById('x');
+    var el_y = document.getElementById('y');
+
+    // 表示をアップデートする関数群
+
+    var updateXY = function (event) {
+      el_x.innerHTML = event.changedTouches[0].pageX;
+      el_y.innerHTML = event.changedTouches[0].pageY;
+    };
+    var updateEventname = function (eventname) {
+      el_eventname.innerHTML = eventname;
+    };
+
+    // イベント設定
+
+    el_hitarea.addEventListener('touchstart', function (event) {
+      updateEventname('touchstart');
+      updateXY(event);
+      el_hitarea.style.backgroundColor = 'red';
+    }, false);
+
+    el_hitarea.addEventListener('touchmove', function (event) {
+      event.preventDefault(); // タッチによる画面スクロールを止める
+      updateEventname('touchmove');
+      updateXY(event);
+    }, false);
+
+    el_hitarea.addEventListener('touchend', function (event) {
+      updateEventname('touchend');
+      updateXY(event);
+      el_hitarea.style.backgroundColor = 'blue';
+    }, false);
+  </script>
 
 </head>
+
 <body>
 
-<h1>Your touch device information</h1>
+  <div id="hitarea">TOUCH ME</div>
+  <div id="eventname">-</div>
+  <div id="coords">X:<span id="x"></span> Y:<span id="y"></span></div>
 
-  <div id="touch-area"></div>
 
 
 </body>
+
 </html>

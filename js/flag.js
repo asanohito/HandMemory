@@ -106,11 +106,11 @@ function setup() {
   button2.class("changebutton");
 }
 
-function changehand(){
+function changehand() {
   right_hand = !right_hand;
-  if(right_hand){
-  button.style.backgroundColor = "red";
-  }else{
+  if (right_hand) {
+    button.style.backgroundColor = "lightblue";
+  } else {
     button.style.backgroundColor = "#00b8ff";
   }
 }
@@ -163,7 +163,7 @@ function drawShape(hands) {
         avr_1y.shift();
         avr_1x.push(x);
         avr_1y.push(y);
-        x = sumArray(avr_1x)+170;
+        x = sumArray(avr_1x) + 170;
         y = sumArray(avr_1y);
         if (right_hand) {
           image(images[0], x - 30, y - 30, 50, 30);
@@ -189,7 +189,7 @@ function drawShape(hands) {
         avr_2y.shift();
         avr_2x.push(x);
         avr_2y.push(y);
-        x = sumArray(avr_2x)+170;
+        x = sumArray(avr_2x) + 170;
         y = sumArray(avr_2y);
         if (right_hand) {
           image(images[1], x - 30, y - 30, 50, 30);
@@ -215,7 +215,7 @@ function drawShape(hands) {
         avr_3y.shift();
         avr_3x.push(x);
         avr_3y.push(y);
-        x = sumArray(avr_3x)+170;
+        x = sumArray(avr_3x) + 170;
         y = sumArray(avr_3y);
         if (right_hand) {
           image(images[2], x - 30, y - 30, 50, 30);
@@ -241,7 +241,7 @@ function drawShape(hands) {
         avr_4y.shift();
         avr_4x.push(x);
         avr_4y.push(y);
-        x = sumArray(avr_4x)+170;
+        x = sumArray(avr_4x) + 170;
         y = sumArray(avr_4y);
         if (right_hand) {
           image(images[3], x - 30, y - 30, 50, 30);
@@ -267,7 +267,7 @@ function drawShape(hands) {
         avr_5y.shift();
         avr_5x.push(x);
         avr_5y.push(y);
-        x = sumArray(avr_5x)+170;
+        x = sumArray(avr_5x) + 170;
         y = sumArray(avr_5y);
         if (right_hand) {
           image(images[4], x - 30, y - 30, 50, 30);
