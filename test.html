@@ -2,30 +2,42 @@
 <html lang="en">
 
 <head>
-  <title>HandMemory!</title>
-  <!-- Be sure to use tfjs 1.7.4, in tfjs 2 they broke their own handpose model-->
-  <!-- Require the peer dependencies of handpose. -->
-  
-  <script src="js/grip.js"></script>
+	<title>HandMemory!</title>
+	<!-- Be sure to use tfjs 1.7.4, in tfjs 2 they broke their own handpose model-->
+	<!-- Require the peer dependencies of handpose. -->
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <meta charset="utf-8" />
+	<!-- <script src="js/grip.js"></script> -->
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="utf-8" />
 
 
-<!-- <input type="file" accept="image/*;capture=camera"> -->
+	<!-- <input type="file" accept="image/*;capture=camera"> -->
 </head>
 
 <body>
-  <script>
-    
-    //framerate via stats.js
-    // ;;; (function () { var script = document.createElement('script'); script.onload = function () { var stats = new Stats(); document.body.appendChild(stats.dom); requestAnimationFrame(function loop() { stats.update(); requestAnimationFrame(loop) }); }; script.src = '//mrdoob.github.io/stats.js/build/stats.min.js'; document.head.appendChild(script); })()
-  </script>
-  <!-- <img src="https://github.com/asanohito/HandMemory/blob/master/image/ADL.png?raw=true">
+	<script>
+		function setup() {
+			createCanvas(100, 100);
+		}
+
+		function draw(){
+			text(e.touches[0].force,10,10);
+		}
+
+		document.body.forEach(el => el.addEventListener("touchforcechange", e => {
+			if (!e.touches || !e.touches[0]) return
+
+			if (e.touches[0].force > 0.15) {
+				e.preventDefault()
+			}
+		}))
+	</script>
+	<!-- <img src="https://github.com/asanohito/HandMemory/blob/master/image/ADL.png?raw=true">
   <img src="image/ADL.png"> -->
-  <!-- <input type="button" onclick="location.href='test.html'" value="遷移"> -->
+	<!-- <input type="button" onclick="location.href='test.html'" value="遷移"> -->
 </body>
 
 </html>
