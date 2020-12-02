@@ -1,64 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>Your touch device information</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>HandMemory!</title>
+  <!-- Be sure to use tfjs 1.7.4, in tfjs 2 they broke their own handpose model-->
+  <!-- Require the peer dependencies of handpose. -->
+  
+  <script src="js/grip.js"></script>
 
-  <style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8" />
 
 
-  </style>
-
-  <script>
-
-    var el_hitarea = document.getElementById('hitarea');
-    var el_eventname = document.getElementById('eventname');
-    var el_x = document.getElementById('x');
-    var el_y = document.getElementById('y');
-
-    // 表示をアップデートする関数群
-
-    var updateXY = function (event) {
-      el_x.innerHTML = event.changedTouches[0].pageX;
-      el_y.innerHTML = event.changedTouches[0].pageY;
-    };
-    var updateEventname = function (eventname) {
-      el_eventname.innerHTML = eventname;
-    };
-
-    // イベント設定
-
-    el_hitarea.addEventListener('touchstart', function (event) {
-      updateEventname('touchstart');
-      updateXY(event);
-      el_hitarea.style.backgroundColor = 'red';
-    }, false);
-
-    el_hitarea.addEventListener('touchmove', function (event) {
-      event.preventDefault(); // タッチによる画面スクロールを止める
-      updateEventname('touchmove');
-      updateXY(event);
-    }, false);
-
-    el_hitarea.addEventListener('touchend', function (event) {
-      updateEventname('touchend');
-      updateXY(event);
-      el_hitarea.style.backgroundColor = 'blue';
-    }, false);
-  </script>
-
+<!-- <input type="file" accept="image/*;capture=camera"> -->
 </head>
 
 <body>
-
-  <div id="hitarea">TOUCH ME</div>
-  <div id="eventname">-</div>
-  <div id="coords">X:<span id="x"></span> Y:<span id="y"></span></div>
-
-
-
+  <script>
+    
+    //framerate via stats.js
+    // ;;; (function () { var script = document.createElement('script'); script.onload = function () { var stats = new Stats(); document.body.appendChild(stats.dom); requestAnimationFrame(function loop() { stats.update(); requestAnimationFrame(loop) }); }; script.src = '//mrdoob.github.io/stats.js/build/stats.min.js'; document.head.appendChild(script); })()
+  </script>
+  <!-- <img src="https://github.com/asanohito/HandMemory/blob/master/image/ADL.png?raw=true">
+  <img src="image/ADL.png"> -->
+  <!-- <input type="button" onclick="location.href='test.html'" value="遷移"> -->
 </body>
 
 </html>
