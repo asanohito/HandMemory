@@ -107,7 +107,7 @@ function setup() {
   button.class("changebutton");
   button2.class("changebutton");
   */
-  fill(100);
+  fill(150);
   rect(0, 0, 170, 482);
   rect(810, 0, 170, 482);
 }
@@ -125,26 +125,20 @@ function touchStarted() {
   if (mouseX < 170) {
     touch_hand = true;
     right_hand = false;
-    console.log(touch_hand);
-    console.log(mouseX, mouseY);
-    fill(255, 255, 0);
-    // rect(0, 0, 170, 482);
-    // rect(810, 0, 170, 482);
+    fill(0);
+    rect(0, 0, 170, 482);
+    rect(810, 0, 170, 482);
   } else if (mouseX > 810) {
     touch_hand = true;
     right_hand = true;
     fill(0);
     rect(0, 0, 170, 482);
     rect(810, 0, 170, 482);
-    // console.log(touch_hand);
-    // console.log(mouseX, mouseY);
   }
 }
 function touchEnded() {
   touch_hand = false;
-  // console.log(touch_hand);
-  // console.log(mouseX, mouseY);
-  fill(100);
+  fill(150);
   rect(0, 0, 170, 482);
   rect(810, 0, 170, 482);
 }
