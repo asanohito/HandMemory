@@ -97,7 +97,7 @@ function setup() {
   capture.hide();
 
   textSize(100);
-/*
+  /*
   button = createButton("チェンジ");
   button2 = createButton("チェンジ");
   button.position(0, 0);
@@ -107,9 +107,9 @@ function setup() {
   button.class("changebutton");
   button2.class("changebutton");
   */
- fill(255,0,0);
- rect(0,0,170,482);
- rect(810,0,170,482);
+  fill(100);
+  rect(0, 0, 170, 482);
+  rect(810, 0, 170, 482);
 }
 
 function changehand() {
@@ -127,17 +127,26 @@ function touchStarted() {
     right_hand = false;
     console.log(touch_hand);
     console.log(mouseX, mouseY);
+    fill(255, 255, 0);
+    // rect(0, 0, 170, 482);
+    // rect(810, 0, 170, 482);
   } else if (mouseX > 810) {
     touch_hand = true;
     right_hand = true;
-    console.log(touch_hand);
-    console.log(mouseX, mouseY);
+    fill(0);
+    rect(0, 0, 170, 482);
+    rect(810, 0, 170, 482);
+    // console.log(touch_hand);
+    // console.log(mouseX, mouseY);
   }
 }
 function touchEnded() {
   touch_hand = false;
-  console.log(touch_hand);
-  console.log(mouseX, mouseY);
+  // console.log(touch_hand);
+  // console.log(mouseX, mouseY);
+  fill(100);
+  rect(0, 0, 170, 482);
+  rect(810, 0, 170, 482);
 }
 
 //配列の平均
