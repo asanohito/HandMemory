@@ -47,11 +47,11 @@ var right_hand = true;
 var touch_hand = false;
 
 // Load the MediaPipe handpose model assets.
-handpose.load().then(function (_model) {
-  // console.log("model initialized.")
-  statusText = "Model loaded.";
-  handposeModel = _model;
-});
+// handpose.load().then(function (_model) {
+//   // console.log("model initialized.")
+//   statusText = "Model loaded.";
+//   handposeModel = _model;
+// });
 
 function preload() {
   images[0] = loadImage("images/ADL.png");
@@ -64,6 +64,13 @@ function preload() {
   images[7] = loadImage("images/ATL.png");
   images[8] = loadImage("images/NLL.png");
   images[9] = loadImage("images/MKL.png");
+
+  // Load the MediaPipe handpose model assets.
+  handpose.load().then(function (_model) {
+    // console.log("model initialized.")
+    statusText = "Model loaded.";
+    handposeModel = _model;
+  });
 }
 /*
 window.onload = function() {
@@ -125,21 +132,24 @@ function touchStarted() {
     touch_hand = true;
     right_hand = false;
     fill(80);
+    noStroke();
     rect(0, 0, 90, 482);
     rect(890, 0, 90, 482);
   } else if (mouseX > 860) {
     touch_hand = true;
     right_hand = true;
     fill(80);
+    noStroke();
     rect(0, 0, 90, 482);
-    rect(890, 0, 90, 482);
+    rect(890, 0, 190, 482);
   }
 }
 function touchEnded() {
   touch_hand = false;
   fill(100);
+  noStroke();
   rect(0, 0, 90, 482);
-  rect(890, 0, 90, 482);
+  rect(890, 0, 190, 482);
 }
 
 //配列の平均
