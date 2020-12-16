@@ -1,91 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta charset="utf-8">
-<title>Your touch device information</title>
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>HandMemory!</title>
+  <!-- Be sure to use tfjs 1.7.4, in tfjs 2 they broke their own handpose model-->
+  <!-- Require the peer dependencies of handpose. -->
+  <script src="https://unpkg.com/@tensorflow/tfjs-core@2.1.0/dist/tf-core.min.js"></script>
+  <script src="https://unpkg.com/@tensorflow/tfjs-converter@2.1.0/dist/tf-converter.min.js"></script>
 
-<style>
-  html, body, div { padding: 0; margin: 0; border: 0; }
-  html, body { width: 100%; height: 100%; overflow: hidden;}
-  body {-webkit-touch-callout:none; -webkit-user-select:none;  }
-</style>
+  <!-- You must explicitly require a TF.js backend if you're not using the tfs union bundle. -->
+  <script src="https://unpkg.com/@tensorflow/tfjs-backend-webgl@2.1.0/dist/tf-backend-webgl.min.js"></script>
+  <!-- Alternatively you can use the WASM backend: <script src="https://unpkg.com/@tensorflow/tfjs-backend-wasm@2.1.0/dist/tf-backend-wasm.js"></script> -->
 
-<script>
+  <script src="https://unpkg.com/@tensorflow-models/handpose@0.0.6/dist/handpose.min.js"></script>
+  <script src="js/main.js"></script>
 
-// 表示領域をクリアする
-function clear(id) {
-  document.getElementById(id).textContent = "";
-}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.10.2/addons/p5.sound.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8" />
 
-// 表示領域に情報を追加する
-function add(id, key, value) {
-  const e = document.createElement("div");
-  document.getElementById(id).appendChild(e);
-  e.textContent = key + "=[" + value + "]";
-}
 
-// ブラウザ情報を表示する
-function set_info() {
-  const keys = [
-    "window.navigator.userAgent",
-    "window.navigator.maxTouchPoints",
-    "window.parent.screen.width",
-    "window.parent.screen.height",
-    "window.screen.width",
-    "window.screen.height",
-  ];
-  for (var key of keys) {
-    add("information-area", key, eval(key));
-  }
-}
-
-// タッチデバイスの情報を表示する
-function handle_touch(event) {
-  clear("touch-area");
-  try {
-    for (var i=0; i<event.touches.length; i++) {
-      var touch = event.touches.item(i);
-	  // Touch.force: 圧力を0.0〜1.0の値で取得する
-	  console.log(touch.force);
-      add("touch-area", "Touch[" + i + "].force", touch.force);
-    }
-  } catch(e) {
-    add("touch-area", "error", e);
-  }
-}
-
-// スクロール禁止
-function no_scroll() {
-    // PCでのスクロール禁止
-    document.addEventListener("mousewheel", scroll_control, { passive: false });
-    // スマホでのタッチ操作でのスクロール禁止
-    document.addEventListener("touchmove", scroll_control, { passive: false });
-}
-
-window.onload = function() {
-  set_info();
-  // 画面に触れはじめたときのイベントに関数を登録
-  document.body.addEventListener("touchstart", handle_touch);
-  // 画面上で移動しているときのイベントに関数を登録
-  document.body.addEventListener("touchmove", handle_touch);
-
-//   no_scroll();
-};
-
-document.addEventListener('touchmove', function(e) {e.preventDefault();}, {passive: false});
-
-</script>
-
+<!-- <input type="file" accept="image/*;capture=camera"> -->
 </head>
-<body oncopy="return false;">
 
-<h1>Your touch device information</h1>
-
-<div id="area">
-  <div id="information-area"></div>
-  <div id="touch-area"></div>
-</div>
-
+<body>
+  <script>
+    
+    //framerate via stats.js
+    // ;;; (function () { var script = document.createElement('script'); script.onload = function () { var stats = new Stats(); document.body.appendChild(stats.dom); requestAnimationFrame(function loop() { stats.update(); requestAnimationFrame(loop) }); }; script.src = '//mrdoob.github.io/stats.js/build/stats.min.js'; document.head.appendChild(script); })()
+  </script>
+  <!-- <img src="https://github.com/asanohito/HandMemory/blob/master/image/ADL.png?raw=true">
+  <img src="image/ADL.png"> -->
+  <!-- <input type="button" onclick="location.href='test.html'" value="遷移"> -->
 </body>
+
 </html>
