@@ -55,12 +55,22 @@ function handle_touch(event) {
   }
 }
 
+// スクロール禁止
+function no_scroll() {
+    // PCでのスクロール禁止
+    document.addEventListener("mousewheel", scroll_control, { passive: false });
+    // スマホでのタッチ操作でのスクロール禁止
+    document.addEventListener("touchmove", scroll_control, { passive: false });
+}
+
 window.onload = function() {
   set_info();
   // 画面に触れはじめたときのイベントに関数を登録
   document.body.addEventListener("touchstart", handle_touch);
   // 画面上で移動しているときのイベントに関数を登録
   document.body.addEventListener("touchmove", handle_touch);
+
+  no_scroll();
 };
 
 </script>
