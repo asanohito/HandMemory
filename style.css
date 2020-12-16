@@ -3,6 +3,12 @@ html, body {
   padding: 0;
   background-color: black;
 }
+body {
+	-webkit-touch-callout:none; 
+	-webkit-user-select:none;
+  }
+
+  
 canvas {
   display: block;
 }
