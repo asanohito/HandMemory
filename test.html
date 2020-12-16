@@ -7,7 +7,7 @@
 
 <style>
   html, body, div { padding: 0; margin: 0; border: 0; }
-  html, body { width: 100%; height: 100%; }
+  html, body { width: 100%; height: 100%; overflow: hidden;}
   body {-webkit-touch-callout:none; -webkit-user-select:none;  }
 </style>
 
@@ -73,9 +73,7 @@ window.onload = function() {
 //   no_scroll();
 };
 
-window.addEventListener('touchmove', event => {
-        event.preventDefault();
-    }, true);
+document.addEventListener('touchmove', function(e) {e.preventDefault();}, {passive: false});
 
 </script>
 
