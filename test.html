@@ -1,132 +1,78 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport"
-		content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
-	<style type="text/css">
-		* {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
-		}
+<meta charset="utf-8">
+<title>Your touch device information</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-		body {
-			overflow: hidden;
-			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-		}
+<style>
+  html, body, div { padding: 0; margin: 0; border: 0; }
+  html, body { width: 100%; height: 100%; }
+</style>
 
-		h1 {
-			position: absolute;
-			top: 30px;
-			left: 0;
-			z-index: 1;
-			width: 100%;
-			color: #fff;
-			font-size: 28px;
-			font-weight: lighter;
-			text-align: center;
-			letter-spacing: .05em;
-		}
+<script>
 
-		#btn {
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			z-index: 1;
-			width: 150px;
-			height: 150px;
-			margin: auto;
-			background: #fff;
-			border-radius: 100%;
-			color: #607d8b;
-			text-align: center;
-			font-weight: lighter;
-			line-height: 150px;
-			letter-spacing: .05em;
-		}
+// 表示領域をクリアする
+function clear(id) {
+  document.getElementById(id).textContent = "";
+}
 
-		#value {
-			position: absolute;
-			bottom: 30px;
-			left: 0;
-			z-index: 1;
-			width: 100%;
-			color: #607d8b;
-			text-align: center;
-			font-weight: lighter;
-		}
+// 表示領域に情報を追加する
+function add(id, key, value) {
+  const e = document.createElement("div");
+  document.getElementById(id).appendChild(e);
+  e.textContent = key + "=[" + value + "]";
+}
 
-		#background {
-			position: absolute;
-			top: 0;
-			left: 0;
-			z-index: 0;
-			width: 100%;
-			height: 100%;
-			background: linear-gradient(to bottom, #d69af4 0%, #faffcc 100%);
-		}
-	</style>
+// ブラウザ情報を表示する
+function set_info() {
+  const keys = [
+    "window.navigator.userAgent",
+    "window.navigator.maxTouchPoints",
+    "window.parent.screen.width",
+    "window.parent.screen.height",
+    "window.screen.width",
+    "window.screen.height",
+  ];
+  for (var key of keys) {
+    add("information-area", key, eval(key));
+  }
+}
+
+// タッチデバイスの情報を表示する
+function handle_touch(event) {
+  clear("touch-area");
+  try {
+    for (var i=0; i<event.touches.length; i++) {
+      var touch = event.touches.item(i);
+	  // Touch.force: 圧力を0.0〜1.0の値で取得する
+	  console.log(touch.force);
+      add("touch-area", "Touch[" + i + "].force", touch.force);
+    }
+  } catch(e) {
+    add("touch-area", "error", e);
+  }
+}
+
+window.onload = function() {
+  set_info();
+  // 画面に触れはじめたときのイベントに関数を登録
+  document.body.addEventListener("touchstart", handle_touch);
+  // 画面上で移動しているときのイベントに関数を登録
+  document.body.addEventListener("touchmove", handle_touch);
+};
+
+</script>
+
 </head>
-
 <body>
-	<h1>Force Touch Sample</h1>
-	<div id="btn">Touch me</div>
-	<div id="value"></div>
-	<div id="background"></div>
 
-	<script>
-		var force = 0,
-			touch = null;
+<h1>Your touch device information</h1>
 
-		var $btn = document.getElementById("btn"),
-			$value = document.getElementById("value"),
-			$background = document.getElementById("background");
+<div id="area">
+  <div id="information-area"></div>
+  <div id="touch-area"></div>
+</div>
 
-		// イベントをキャンセル
-		function cancelEvent(e) {
-			e.preventDefault();
-			e.stopPropagation();
-		}
-
-		// タッチを取得して、値の更新を実行する
-		function checkForce(e) {
-			cancelEvent(e);
-			touch = e.touches[0];
-			refreshForceValue();
-		}
-
-		// タップの強さを更新する
-		function refreshForceValue() {
-			if (!touch) return;
-			force = touch.force;
-			render();
-			setTimeout(refreshForceValue, 10);
-		}
-
-		// タップの強さを視覚的にフィードバック
-		function render() {
-			$value.innerHTML = "Force : " + force;
-			$btn.style.boxShadow = "0 0 " + (10 * force) + "px rgba(0, 0, 0, " + (0.8 * force) + ")";
-			$background.style.webkitFilter = "contrast(" + (100 - 40 * force) + "%)";
-		}
-
-		// イベントを設定
-		$btn.addEventListener("touchstart", checkForce, false);
-		$btn.addEventListener("touchmove", checkForce, false);
-		$btn.addEventListener("touchend", function (e) {
-			cancelEvent(e);
-			touch = null;
-			force = 0;
-			render();
-		}, false);
-
-		// 初期化
-		render();
-	</script>
 </body>
-
 </html>
