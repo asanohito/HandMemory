@@ -98,7 +98,7 @@ function setup() {
 
   textSize(100);
   
-  fill(200,100,0);
+  fill(100);
   rect(0, 0, 170, 482);
   rect(810, 0, 170, 482);
 }
@@ -119,20 +119,20 @@ function touchStarted() {
   if (mouseX < 170) {
     touch_hand = true;
     right_hand = false;
-    fill(0);
+    fill(50);
     rect(0, 0, 170, 482);
     rect(810, 0, 170, 482);
   } else if (mouseX > 810) {
     touch_hand = true;
     right_hand = true;
-    fill(0);
+    fill(50);
     rect(0, 0, 170, 482);
     rect(810, 0, 170, 482);
   }
 }
 function touchEnded() {
   touch_hand = false;
-  fill(150);
+  fill(100);
   rect(0, 0, 170, 482);
   rect(810, 0, 170, 482);
 }
@@ -265,7 +265,6 @@ function drawShape(hands) {
 }
 
 function draw() {
-  image(images[0], 0, 0, images[0].width, images[0].height);
   let img = capture.get(); //画像にして軽量化
 
   if (handposeModel && videoDataLoaded) {
