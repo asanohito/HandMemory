@@ -121,16 +121,16 @@ document.addEventListener(
 // }
 
 function touchStarted() {
-  if (mouseX < 80) {
+  if (mouseX < 120) {
     touch_hand = true;
     right_hand = false;
-    fill(50);
+    fill(80);
     rect(0, 0, 80, 482);
     rect(900, 0, 80, 482);
-  } else if (mouseX > 900) {
+  } else if (mouseX > 860) {
     touch_hand = true;
     right_hand = true;
-    fill(50);
+    fill(80);
     rect(0, 0, 80, 482);
     rect(900, 0, 80, 482);
   }
@@ -296,7 +296,7 @@ function draw() {
 
   // first draw the debug video and annotations
   push();
-  image(img, 90, -80, 800, 640);
+  image(img, 80, -80, 800, 640);
   fill(255, 0, 0, 80);
   stroke(255);
   strokeWeight(3);
