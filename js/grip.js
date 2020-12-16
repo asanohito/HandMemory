@@ -98,19 +98,22 @@ function setup() {
 
   textSize(100);
   
-  fill(150);
+  fill(200,100,0);
   rect(0, 0, 170, 482);
   rect(810, 0, 170, 482);
 }
 
-function changehand() {
-  right_hand = !right_hand;
-  if (right_hand) {
-    button.style.backgroundColor = "lightblue";
-  } else {
-    button.style.backgroundColor = "#00b8ff";
-  }
-}
+document.addEventListener('touchmove', function(e) {e.preventDefault();}, {passive: false});
+
+
+// function changehand() {
+//   right_hand = !right_hand;
+//   if (right_hand) {
+//     button.style.backgroundColor = "lightblue";
+//   } else {
+//     button.style.backgroundColor = "#00b8ff";
+//   }
+// }
 
 function touchStarted() {
   if (mouseX < 170) {
@@ -285,7 +288,7 @@ function draw() {
     });
   }
 
-  background(200);
+  // background(200);
 
   // first draw the debug video and annotations
   push();
