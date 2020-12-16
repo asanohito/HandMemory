@@ -119,13 +119,13 @@ function touchStarted() {
   if (mouseX < 170) {
     touch_hand = true;
     right_hand = false;
-    fill(50);
+    fill(80);
     rect(0, 0, 170, 482);
     rect(810, 0, 170, 482);
   } else if (mouseX > 810) {
     touch_hand = true;
     right_hand = true;
-    fill(50);
+    fill(80);
     rect(0, 0, 170, 482);
     rect(810, 0, 170, 482);
   }
