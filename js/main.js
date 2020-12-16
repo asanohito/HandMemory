@@ -182,8 +182,8 @@ function drawShape(hands) {
     for (var j = 0; j < landmarks.length; j++) {
       var [x, y, z] = landmarks[j]; //指の位置座標取得
       // x = x*2.1;
-	  // y = y*2.1;
-	  var adjustment = 1.25; //画面サイズに合わせて暗記項目の配置を調整
+      // y = y*2.1;
+      var adjustment = 1.25; //画面サイズに合わせて暗記項目の配置を調整
       if (touch_hand) {
         if (j == 4) {
           //配列の先頭を削除、末尾に追加
@@ -191,7 +191,7 @@ function drawShape(hands) {
           avr_1y.shift();
           avr_1x.push(x);
           avr_1y.push(y);
-          x = adjustment*sumArray(avr_1x) + 90;
+          x = adjustment * sumArray(avr_1x) + 90;
           y = sumArray(avr_1y);
           if (right_hand) {
             image(images[0], x - 30, y - 30, 50, 30);
@@ -207,7 +207,7 @@ function drawShape(hands) {
           avr_2y.shift();
           avr_2x.push(x);
           avr_2y.push(y);
-          x = adjustment*sumArray(avr_2x) + 90;
+          x = adjustment * sumArray(avr_2x) + 90;
           y = sumArray(avr_2y);
           if (right_hand) {
             image(images[1], x - 30, y - 30, 50, 30);
@@ -223,7 +223,7 @@ function drawShape(hands) {
           avr_3y.shift();
           avr_3x.push(x);
           avr_3y.push(y);
-          x = adjustment*sumArray(avr_3x) + 90;
+          x = adjustment * sumArray(avr_3x) + 90;
           y = sumArray(avr_3y);
           if (right_hand) {
             image(images[2], x - 30, y - 30, 50, 30);
@@ -239,7 +239,7 @@ function drawShape(hands) {
           avr_4y.shift();
           avr_4x.push(x);
           avr_4y.push(y);
-          x = adjustment*sumArray(avr_4x) + 90;
+          x = adjustment * sumArray(avr_4x) + 90;
           y = sumArray(avr_4y);
           if (right_hand) {
             image(images[3], x - 30, y - 30, 50, 30);
@@ -255,7 +255,7 @@ function drawShape(hands) {
           avr_5y.shift();
           avr_5x.push(x);
           avr_5y.push(y);
-          x = adjustment*sumArray(avr_5x) + 90;
+          x = adjustment * sumArray(avr_5x) + 90;
           y = sumArray(avr_5y);
           if (right_hand) {
             image(images[4], x - 30, y - 30, 50, 30);
@@ -291,21 +291,22 @@ function draw() {
           Math.round(myHands[0].handInViewConfidence * 1000) / 1000;
       }
     });
-  }
+    //   }
 
-  // background(200);
+    // background(200);
 
-  // first draw the debug video and annotations
-  push();
-  image(img, 90, -80, 800, 640);
-  fill(255, 0, 0, 80);
-  stroke(255);
-  strokeWeight(3);
-  drawShape(myHands); // draw my hand skeleton
-  pop();
-  /*
+    // first draw the debug video and annotations
+    push();
+    image(img, 90, -80, 800, 640);
+    fill(255, 0, 0, 80);
+    stroke(255);
+    strokeWeight(3);
+    drawShape(myHands); // draw my hand skeleton
+    pop();
+    /*
   push();
   fill(255, 255, 0);
   text(statusText, 2, 60);
   pop();*/
+  }
 }
