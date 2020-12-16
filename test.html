@@ -70,8 +70,12 @@ window.onload = function() {
   // 画面上で移動しているときのイベントに関数を登録
   document.body.addEventListener("touchmove", handle_touch);
 
-  no_scroll();
+//   no_scroll();
 };
+
+window.addEventListener('touchmove', event => {
+        event.preventDefault();
+    }, true);
 
 </script>
 
