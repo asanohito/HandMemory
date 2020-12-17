@@ -297,6 +297,16 @@ function draw() {
   strokeWeight(3);
   drawShape(myHands); // draw my hand skeleton
   pop();
+
+  if (touch_hand == true) {
+    fill(80);
+  } else {
+    fill(100);
+  }
+  nostroke();
+  rect(0, 0, 170, 482);
+  rect(810, 0, 170, 482);
+
   /*
   push();
   fill(255, 255, 0);
