@@ -318,7 +318,7 @@ function draw() {
     } else {
       fill(100);
     }
-    nostroke();
+    noStroke();
     rect(0, 0, 90, 482);
     rect(890, 0, 190, 482);
     /*
