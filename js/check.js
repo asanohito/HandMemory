@@ -1,19 +1,42 @@
 myButton = 0; // [Start]/[Stop]のフラグ
-function myCheck() {
-  if (myButton == 0) {
-    // Startボタンを押した
-    myStart = new Date(); // スタート時間を退避
-    myButton = 1;
-    document.myForm.myFormButton.value = "Stop!";
-    myInterval = setInterval("myDisp()", 1);
-  } else {
-    // Stopボタンを押した
-    myDisp();
-    myButton = 0;
-    document.myForm.myFormButton.value = "Start";
-    clearInterval(myInterval);
-  }
+function startCheck() {
+  // Startボタンを押した
+  myStart = new Date(); // スタート時間を退避
+  // myButton = 1;
+  myInterval = setInterval("myDisp()", 1);
 }
+
+function stopCheck() {
+  // Stopボタンを押した
+  myDisp();
+  clearInterval(myInterval);
+
+  var time = document.answerForm.myFormTime.value;
+  var ans_text1 = document.answerForm.answer1.value;
+  var ans_text2 = document.answerForm.answer2.value;
+  var ans_text3 = document.answerForm.answer3.value;
+  var ans_text4 = document.answerForm.answer4.value;
+  var ans_text5 = document.answerForm.answer5.value;
+  var ans_text6 = document.answerForm.answer6.value;
+  var ans_text7 = document.answerForm.answer7.value;
+  var ans_text8 = document.answerForm.answer8.value;
+  var ans_text9 = document.answerForm.answer9.value;
+  var ans_text10 = document.answerForm.answer10.value;
+
+  document.answerForm.answerResult.value =
+    time +
+    ans_text1 +
+    ans_text2 +
+    ans_text3 +
+    ans_text4 +
+    ans_text5 +
+    ans_text6 +
+    ans_text7 +
+    ans_text8 +
+    ans_text9 +
+    ans_text10;
+}
+
 function myDisp() {
   myStop = new Date(); // 経過時間を退避
   myTime = myStop.getTime() - myStart.getTime(); // 通算ミリ秒計算
@@ -23,5 +46,30 @@ function myDisp() {
   myTime = myTime - myM * 60 * 1000;
   myS = Math.floor(myTime / 1000); // '秒'取得
   myMS = myTime % 1000; // 'ミリ秒'取得
-  document.myForm.myFormTime.value = myH + ":" + myM + ":" + myS + ":" + myMS;
+  document.answerForm.myFormTime.value =
+    myH + ":" + myM + ":" + myS + ":" + myMS;
+}
+
+function checkText() {
+  //   var ans_text1 = document.answerForm.answer1.value;
+  var ans_text1 = document.getElementById("an1");
+  var ans_text2 = document.answerForm.answer2.value;
+  var ans_text3 = document.answerForm.answer3.value;
+  alert(ans_text1.value);
+}
+
+function myFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("result");
+  console.log(copyText);
+
+  /* Select the text field */
+  copyText.select();
+  //   copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText.value);
 }
