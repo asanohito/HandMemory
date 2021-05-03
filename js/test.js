@@ -1,6 +1,3 @@
-var finger_number = document.getElementById("a").title;
-console.log(finger_number);
-
 /*
  * https://editor.p5js.org/LingDong-/sketches/1viPqbRMv
  */
