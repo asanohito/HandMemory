@@ -1,4 +1,4 @@
-// 左手親指1 + 右手親指6
+// 右手親指1 + 左手小指6
 /*
  * https://editor.p5js.org/LingDong-/sketches/1viPqbRMv
  */
