@@ -35,6 +35,30 @@ function stopCheck() {
     ans_text8 +
     ans_text9 +
     ans_text10;
+
+  var inputElement = document.querySelector('input[name="answer1"]');
+  inputElement.disabled = true;
+  var inputElement = document.querySelector('input[name="answer2"]');
+  inputElement.disabled = true;
+  var inputElement = document.querySelector('input[name="answer3"]');
+  inputElement.disabled = true;
+  var inputElement = document.querySelector('input[name="answer4"]');
+  inputElement.disabled = true;
+  var inputElement = document.querySelector('input[name="answer5"]');
+  inputElement.disabled = true;
+  var inputElement = document.querySelector('input[name="answer6"]');
+  inputElement.disabled = true;
+  var inputElement = document.querySelector('input[name="answer7"]');
+  inputElement.disabled = true;
+  var inputElement = document.querySelector('input[name="answer8"]');
+  inputElement.disabled = true;
+  var inputElement = document.querySelector('input[name="answer9"]');
+  inputElement.disabled = true;
+  var inputElement = document.querySelector('input[name="answer10"]');
+  inputElement.disabled = true;
+
+  // var inputElement = document.querySelector('input[name="answerResult"]');
+  // inputElement.disabled = true;
 }
 
 function myDisp() {
@@ -71,5 +95,6 @@ function myFunction() {
   document.execCommand("copy");
 
   /* Alert the copied text */
-  alert("Copied the text: " + copyText.value);
+  // alert("Copied the text: " + copyText.value);
+  alert("コピー完了");
 }

@@ -8,33 +8,35 @@
     <title>Document</title>
 
     <script src="js/check.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="check.css">
 </head>
 
 <body>
+    <div class="outer">
+    
     <form name="answerForm">
         <input type="button" value="テスト開始" name="myFormButton" onclick="startCheck()"><br>
 
-        経過時間<input type="text" size="28" name="myFormTime" id="ansTime"><br>
+        経過時間 <input type="text" size="28" name="myFormTime" id="ansTime"><br><br>
 
-
-        問題１<input name="answer1" type="text"/><br>
-        問題2 <input name="answer2" type="text" /><br>
-        問題3<input name="answer3" type="text"/><br>
-        問題4 <input name="answer4" type="text" /><br>
-        問題5<input name="answer5" type="text"/><br>
-        問題6 <input name="answer6" type="text" /><br>
-        問題7<input name="answer7" type="text"/><br>
-        問題8 <input name="answer8" type="text" /><br>
-        問題9<input name="answer9" type="text"/><br>
-        問題10 <input name="answer10" type="text" /><br>
+        <div class="inner">
+        １. 問題文　<input name="answer1" type="text"/><br>
+        2. 問題文　<input name="answer2" type="text" /><br>
+        3. 問題文　<input name="answer3" type="text"/><br>
+        4. 問題文　<input name="answer4" type="text" /><br>
+        5. 問題文　<input name="answer5" type="text"/><br>
+        6. 問題文　<input name="answer6" type="text" /><br>
+        7. 問題文　<input name="answer7" type="text"/><br>
+        8. 問題文　<input name="answer8" type="text" /><br>
+        9. 問題文　<input name="answer9" type="text"/><br>
+        10. 問題文　<input name="answer10" type="text" /><br><br>
         
-        
-        回答<input name="answerResult" type="text"  id="result"/><br>
+    </div>
+        <input name="answerResult" type="text"  id="result"/><br>
         <!-- <input type="submit" value="送信" /> -->
 
 
-        <input type="button" value="テスト終了" name="StopButton" onclick="stopCheck()"><br>
+        <input type="button" value="テスト終了" name="StopButton" onclick="stopCheck()"><br><br>
     </form>
     <!-- <form id="sampleForm">
         <input type="text" id="textField" />
@@ -54,9 +56,10 @@
 
 
 
-    <input type="text" value="Hello World" id="myInput">
+    <!-- <input type="text"  id="myInput"> -->
     <button onclick="myFunction()">Copy text</button>
 
+</div>
 </body>
 
 </html>
