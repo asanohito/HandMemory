@@ -9,36 +9,38 @@
 
     <script src="js/check.js"></script>
     <link rel="stylesheet" type="text/css" href="check.css">
+    <br>
 </head>
 
 <body>
     <div class="outer">
-    
-    <form name="answerForm">
-        <input type="button" value="テスト開始" name="myFormButton" onclick="startCheck()"><br>
 
-        経過時間 <input type="text" size="28" name="myFormTime" id="ansTime"><br><br>
+        <form name="answerForm">
+            <input type="button" value="テスト開始" name="myFormButton" onclick="startCheck()"><br>
 
-        <div class="inner">
-        １. 問題文　<input name="answer1" type="text"/><br>
-        2. 問題文　<input name="answer2" type="text" /><br>
-        3. 問題文　<input name="answer3" type="text"/><br>
-        4. 問題文　<input name="answer4" type="text" /><br>
-        5. 問題文　<input name="answer5" type="text"/><br>
-        6. 問題文　<input name="answer6" type="text" /><br>
-        7. 問題文　<input name="answer7" type="text"/><br>
-        8. 問題文　<input name="answer8" type="text" /><br>
-        9. 問題文　<input name="answer9" type="text"/><br>
-        10. 問題文　<input name="answer10" type="text" /><br><br>
-        
-    </div>
-        <input name="answerResult" type="text"  id="result"/><br>
-        <!-- <input type="submit" value="送信" /> -->
+                <input type="hidden" size="28" name="myFormTime" id="ansTime"><br><br>
+            <div class="inner">
+                １位　<input name="answer1" type="text" /><br>
+                2位　<input name="answer2" type="text" /><br>
+                3位　<input name="answer3" type="text" /><br>
+                4位　<input name="answer4" type="text" /><br>
+                5位　<input name="answer5" type="text" /><br>
+                6位　<input name="answer6" type="text" /><br>
+                7位　<input name="answer7" type="text" /><br>
+                8位　<input name="answer8" type="text" /><br>
+                9位　<input name="answer9" type="text" /><br>
+                10位　<input name="answer10" type="text" /><br><br>
+
+            </div>
+            <div style="position: absolute; opacity:0;">
+            <input name="answerResult" type="text" id="result" /></div>
+            <br>
+            <!-- <input type="submit" value="送信" /> -->
 
 
-        <input type="button" value="テスト終了" name="StopButton" onclick="stopCheck()"><br><br>
-    </form>
-    <!-- <form id="sampleForm">
+            <input type="button" value="テスト終了" name="StopButton" onclick="stopCheck()"><br><br>
+        </form>
+        <!-- <form id="sampleForm">
         <input type="text" id="textField" />
         <input type="submit" value="submit" />
     </form>
@@ -56,10 +58,10 @@
 
 
 
-    <!-- <input type="text"  id="myInput"> -->
-    <button onclick="myFunction()">Copy text</button>
+        <!-- <input type="text"  id="myInput"> -->
+        <button onclick="myFunction()">Copy text</button>
 
-</div>
+    </div>
 </body>
 
 </html>

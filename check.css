@@ -1,3 +1,10 @@
+body {
+  font: 14px/1.6 "Hiragino Kaku Gothic Pro", Osaka, "メイリオ",
+    "ＭＳ Ｐゴシック", "MS PGothic", Verdana, Arial, sans-serif;
+  margin: 0;
+  color: #313131;
+}
+
 .outer {
   text-align: center;
 }
@@ -28,4 +35,8 @@ button {
 /* ホバー時（カーソルをのせた時）の見た目 */
 button:hover {
   background-color: #064fda; /* 背景色 */
+}
+
+.visibility-hidden {
+  visibility: hidden;
 }
