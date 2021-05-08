@@ -9,6 +9,9 @@ body {
   color: #313131;
   line-height: 28px;
 }
+.question {
+  font-size: 2em;
+}
 
 .outer {
   text-align: center;
@@ -48,6 +51,10 @@ button:hover {
   visibility: hidden;
 }
 
+input[type="button"] {
+  -webkit-appearance: none;
+}
+
 input {
   border: 0;
   border-radius: 0.27em; /* 角丸 */
@@ -64,7 +71,7 @@ input:hover {
 }
 
 input.Inputfield {
-  border: 2px solid #8191a0; /* 枠線 */
+  border: 2px solid #adbbc7; /* 枠線 */
   border-radius: 0.27em; /* 角丸 */
   padding: 0.5em; /* 内側の余白量 */
   background-color: rgb(255, 255, 255); /* 背景色 */
