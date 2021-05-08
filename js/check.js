@@ -25,15 +25,25 @@ function stopCheck() {
 
   document.answerForm.answerResult.value =
     time +
+    "/" +
     ans_text1 +
+    "/" +
     ans_text2 +
+    "/" +
     ans_text3 +
+    "/" +
     ans_text4 +
+    "/" +
     ans_text5 +
+    "/" +
     ans_text6 +
+    "/" +
     ans_text7 +
+    "/" +
     ans_text8 +
+    "/" +
     ans_text9 +
+    "/" +
     ans_text10;
 
   var inputElement = document.querySelector('input[name="answer1"]');
