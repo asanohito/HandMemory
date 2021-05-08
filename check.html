@@ -18,6 +18,7 @@
         <form name="answerForm">
             <input type="button" value="テスト開始" name="myFormButton" onclick="startCheck()"><br>
                 <input type="hidden" size="28" name="myFormTime" id="ansTime"><br>
+                <div id="answerHide" style="visibility:hidden;" >
                 <div class="question">〇〇の順位を答えてください</div>
             <div class="inner">
                 １位　<input class="Inputfield" name="answer1" type="text" placeholder="回答を入力する" /><br>
@@ -39,6 +40,7 @@
 
 
             <input type="button" value="テスト終了" name="StopButton" onclick="stopCheck()"><br><br>
+            </div>
         </form>
         <!-- <form id="sampleForm">
         <input type="text" id="textField" />
@@ -59,7 +61,7 @@
 
 
         <!-- <input type="text"  id="myInput"> -->
-        <button onclick="myFunction()">Copy text</button>
+        <button onclick="myFunction()">Copy text</button><br><br>
 
     </div>
 </body>

@@ -1,9 +1,17 @@
 myButton = 0; // [Start]/[Stop]のフラグ
+
+let ansHide = document.getElementById("answerHide");
+console.log(ansHide);
+
 function startCheck() {
   // Startボタンを押した
   myStart = new Date(); // スタート時間を退避
   // myButton = 1;
   myInterval = setInterval("myDisp()", 1);
+  var inputElement = document.querySelector('input[name="myFormButton"]');
+  inputElement.disabled = true;
+  inputElement.style.backgroundColor = "red";
+  document.getElementById("answerHide").style.visibility = "visible";
 }
 
 function stopCheck() {
@@ -46,29 +54,13 @@ function stopCheck() {
     "/" +
     ans_text10;
 
-  var inputElement = document.querySelector('input[name="answer1"]');
-  inputElement.disabled = true;
-  var inputElement = document.querySelector('input[name="answer2"]');
-  inputElement.disabled = true;
-  var inputElement = document.querySelector('input[name="answer3"]');
-  inputElement.disabled = true;
-  var inputElement = document.querySelector('input[name="answer4"]');
-  inputElement.disabled = true;
-  var inputElement = document.querySelector('input[name="answer5"]');
-  inputElement.disabled = true;
-  var inputElement = document.querySelector('input[name="answer6"]');
-  inputElement.disabled = true;
-  var inputElement = document.querySelector('input[name="answer7"]');
-  inputElement.disabled = true;
-  var inputElement = document.querySelector('input[name="answer8"]');
-  inputElement.disabled = true;
-  var inputElement = document.querySelector('input[name="answer9"]');
-  inputElement.disabled = true;
-  var inputElement = document.querySelector('input[name="answer10"]');
-  inputElement.disabled = true;
-
-  // var inputElement = document.querySelector('input[name="answerResult"]');
+  // var inputElement = document.querySelector('input[name="answer1"]');
   // inputElement.disabled = true;
+  // 回答終了後に編集不可にする
+  var inputElement = document.querySelectorAll("input.Inputfield");
+  for (var i = 0; i < 10; i++) {
+    inputElement[i].disabled = true;
+  }
 }
 
 function myDisp() {
