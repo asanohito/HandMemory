@@ -8,9 +8,9 @@ function startCheck() {
   myStart = new Date(); // スタート時間を退避
   // myButton = 1;
   myInterval = setInterval("myDisp()", 1);
-  var inputElement = document.querySelector('input[name="myFormButton"]');
+  var inputElement = document.querySelector('input[name="startButton"]');
   inputElement.disabled = true;
-  inputElement.style.backgroundColor = "red";
+  inputElement.style.backgroundColor = "#096CB3";
   document.getElementById("answerHide").style.visibility = "visible";
 }
 
@@ -61,6 +61,10 @@ function stopCheck() {
   for (var i = 0; i < 10; i++) {
     inputElement[i].disabled = true;
   }
+
+  var inputElement = document.querySelector('input[name="StopButton"]');
+  inputElement.disabled = true;
+  inputElement.style.backgroundColor = "#096CB3";
 }
 
 function myDisp() {
