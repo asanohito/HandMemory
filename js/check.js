@@ -72,5 +72,5 @@ function myFunction() {
 
   /* Alert the copied text */
   // alert("Copied the text: " + copyText.value);
-  alert("コピー完了");
+  swal("コピー完了しました！");
 }
