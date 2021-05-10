@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <h1>回答復号化</h1>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function decaesar(val, key) {
+            console.log(val);
+            var result = "";
+            for (var i = 0; i < val.length; i++) {
+                result += String.fromCharCode(val.charCodeAt(i) - key);
+            }
+            return decodeURIComponent(result);
+        }
+
+        function decFunction() {
+            var temp = document.getElementById("input").value
+            document.getElementById("output").value = decaesar(temp, 3);
+        }
+    </script>
+       <link rel="stylesheet" type="text/css" href="check.css">
+    <style>
+        body {
+            font: 14px/1.6 "Hiragino Kaku Gothic Pro", Osaka, "メイリオ",
+                "ＭＳ Ｐゴシック", "MS PGothic", Verdana, Arial, sans-serif;
+            margin: 0;
+            color: #313131;
+            line-height: 28px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea id="input" rows="10" cols="60"></textarea><br>
+    <button onclick="decFunction()">復号化</button><br><br>
+    <textarea id="output" rows="10" cols="60"></textarea>
+
+
+</body>
+
+</html>

@@ -6,7 +6,7 @@ function startCheck() {
   myInterval = setInterval("myDisp()", 1);
   var inputElement = document.querySelector('input[name="startButton"]');
   inputElement.disabled = true; //一度しか押せない
-  inputElement.style.backgroundColor = "#096CB3"; //押したら色を変える
+  inputElement.style.backgroundColor = "#02328C"; //押したら色を変える
   //answerHideの中身を見えるようにする
   document.getElementById("answerHide").style.visibility = "visible";
 }
@@ -29,7 +29,7 @@ function stopCheck() {
     temp += "/" + ans_text[i].value; //間にスラッシュを入れてつなげる
   }
 
-  document.getElementById("result").value = temp;
+  document.getElementById("result").value = caesar(temp, 3);
 
   // var inputElement = document.querySelector('input[name="answer1"]');
   // inputElement.disabled = true;
@@ -41,7 +41,7 @@ function stopCheck() {
 
   var inputElement = document.querySelector('input[name="StopButton"]');
   inputElement.disabled = true; //一度しか押せない
-  inputElement.style.backgroundColor = "#096CB3"; //押したら色を変える
+  inputElement.style.backgroundColor = "#02328C"; //押したら色を変える
 }
 
 function myDisp() {
@@ -72,5 +72,17 @@ function myFunction() {
 
   /* Alert the copied text */
   // alert("Copied the text: " + copyText.value);
+
   swal("コピー完了しました！");
+}
+
+function caesar(val, key) {
+  //暗号化
+  console.log(val);
+  val = encodeURIComponent(val);
+  var result = "";
+  for (var i = 0; i < val.length; i++) {
+    result += String.fromCharCode(val.charCodeAt(i) + key);
+  }
+  return result;
 }
