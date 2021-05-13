@@ -17,15 +17,11 @@ function stopCheck() {
   clearInterval(myInterval);
 
   var time = document.answerForm.myFormTime.value;
-  //Inputfieldクラスを持つもの(回答1~12)を配列にいれる
+  //Inputfieldクラスを持つもの(回答1~10)を配列にいれる
   var ans_text = document.getElementsByClassName("Inputfield");
 
-  for (var i = 0; i < 12; i++) {
-    console.log(ans_text[i].value); //inputの中身を表示
-  }
-
   var temp = time; //コピー用データの格納
-  for (var i = 0; i < 12; i++) {
+  for (var i = 0; i < ans_text.length; i++) {
     temp += "/" + ans_text[i].value; //間にスラッシュを入れてつなげる
   }
 
@@ -35,7 +31,7 @@ function stopCheck() {
   // inputElement.disabled = true;
   // 回答終了後に編集不可にする
   var inputElement = document.querySelectorAll("input.Inputfield");
-  for (var i = 0; i < 12; i++) {
+  for (var i = 0; i < ans_text.length; i++) {
     inputElement[i].disabled = true;
   }
 
