@@ -325,6 +325,7 @@ function draw() {
     fill(255, 0, 0, 80);
     stroke(255);
     strokeWeight(3);
+    textSize(20);
     drawShape(myHands); // draw my hand skeleton
     pop();
     if (touch_hand == true) {
