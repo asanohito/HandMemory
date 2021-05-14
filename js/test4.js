@@ -1,4 +1,4 @@
-// 右手親指1 + 左手親指6
+// 左手親指1 + 右手親指6
 /*
  * https://editor.p5js.org/LingDong-/sketches/1viPqbRMv
  */
@@ -19,16 +19,16 @@ var capture; // webcam capture, managed by p5.js
 let images = []; //暗記画像
 
 let finger_text = [
-  "1アンドラ",
-  "2アルバニア",
-  "3イギリス",
-  "4アイルランド",
-  "5アイスランド",
-  "6イタリア",
-  "7エストニア",
-  "8オーストリア",
-  "9オランダ",
-  "10北マケドニア",
+  "宮城県",
+  "鹿児島県",
+  "群馬県",
+  "福岡県",
+  "岐阜県",
+  "佐賀県",
+  "奈良県",
+  "岡山県",
+  "愛知県",
+  "大分県",
 ]; //暗記文字
 
 //フレーム間の平均
@@ -217,7 +217,7 @@ function drawShape(hands) {
           avr_1y.push(y);
           x = adjustment * sumArray(avr_1x) + 90;
           y = sumArray(avr_1y);
-          if (!right_hand) {
+          if (right_hand) {
             // image(images[0], x - 30, y - 30, 50, 30);
             text(finger_text[0], x - 30, y + 10);
           } else {
@@ -233,7 +233,7 @@ function drawShape(hands) {
           avr_2y.push(y);
           x = adjustment * sumArray(avr_2x) + 90;
           y = sumArray(avr_2y);
-          if (!right_hand) {
+          if (right_hand) {
             // image(images[1], x - 30, y - 30, 50, 30);
             text(finger_text[1], x - 30, y + 10);
           } else {
@@ -249,7 +249,7 @@ function drawShape(hands) {
           avr_3y.push(y);
           x = adjustment * sumArray(avr_3x) + 90;
           y = sumArray(avr_3y);
-          if (!right_hand) {
+          if (right_hand) {
             // image(images[2], x - 30, y - 30, 50, 30);
             text(finger_text[2], x - 30, y + 10);
           } else {
@@ -265,7 +265,7 @@ function drawShape(hands) {
           avr_4y.push(y);
           x = adjustment * sumArray(avr_4x) + 90;
           y = sumArray(avr_4y);
-          if (!right_hand) {
+          if (right_hand) {
             // image(images[3], x - 30, y - 30, 50, 30);
             text(finger_text[3], x - 30, y + 10);
           } else {
@@ -281,7 +281,7 @@ function drawShape(hands) {
           avr_5y.push(y);
           x = adjustment * sumArray(avr_5x) + 90;
           y = sumArray(avr_5y);
-          if (!right_hand) {
+          if (right_hand) {
             // image(images[4], x - 30, y - 30, 50, 30);
             text(finger_text[4], x - 30, y + 10);
           } else {
