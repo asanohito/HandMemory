@@ -38,6 +38,9 @@ function stopCheck() {
   var inputElement = document.querySelector('input[name="StopButton"]');
   inputElement.disabled = true; //一度しか押せない
   inputElement.style.backgroundColor = "#02328C"; //押したら色を変える
+
+  //コピーボタンの表示
+  document.getElementById("copy").style.visibility = "visible";
 }
 
 function myDisp() {

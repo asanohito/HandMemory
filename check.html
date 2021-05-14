@@ -21,7 +21,7 @@
             <input type="button" value="テスト開始" name="startButton" onclick="startCheck()"><br>
             <input type="hidden" size="28" name="myFormTime" id="ansTime"><br>
             <div id="answerHide" style="visibility:hidden;">
-                <div class="question">〇〇の都道府県ランキングを答えてください</div><br>
+                <div class="question">物価指数の低い都道府県ランキングを答えてください</div><br>
                 ※ わからない場合は空欄にしてください<br>
                 <div class="inner">
                     １位　<input class="Inputfield" name="answer1" type="text" placeholder="回答を入力する" /><br>
@@ -46,7 +46,7 @@
         </form>
 
 
-        <button onclick="myFunction()">Copy text</button><br><br>
+        <button onclick="myFunction()" id="copy" style="visibility:hidden;">Copy text</button><br><br>
 
         <div style="position: absolute; opacity:0;">
             <input name="answerResult" type="text" id="result" />
