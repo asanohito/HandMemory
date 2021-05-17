@@ -25,7 +25,7 @@ function stopCheck() {
     temp += "/" + ans_text[i].value; //間にスラッシュを入れてつなげる
   }
 
-  document.getElementById("result").value = caesar(temp, 4);
+  document.getElementById("result").value = caesar(temp, 5);
 
   // var inputElement = document.querySelector('input[name="answer1"]');
   // inputElement.disabled = true;
