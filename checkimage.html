@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>記憶テスト </title>
+
+    <script src="js/check.js"></script>
+    <!-- sweetalert.jsを導入 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="check.css">
+    <br>
+</head>
+
+<body>
+    <div class="outer">
+
+        <form name="answerForm" autocomplete="off">
+            <input type="button" value="テスト開始" name="startButton" onclick="startCheck()"><br>
+            <input type="hidden" size="28" name="myFormTime" id="ansTime"><br>
+            <div id="answerHide" style="visibility:hidden;">
+                <div class="question">物価指数の低い都道府県ランキングを答えてください</div><br>
+                ※ わからない場合は空欄にしてください<br>
+                <div class="inner">
+                    １位　<input class="Inputfield" name="answer1" type="text" placeholder="回答を入力する" /><br>
+                    2位　<input class="Inputfield" name="answer2" type="text" /><br>
+                    3位　<input class="Inputfield" name="answer3" type="text" /><br>
+                    4位　<input class="Inputfield" name="answer4" type="text" /><br>
+                    5位　<input class="Inputfield" name="answer5" type="text" /><br>
+                    6位　<input class="Inputfield" name="answer6" type="text" /><br>
+                    7位　<input class="Inputfield" name="answer7" type="text" /><br>
+                    8位　<input class="Inputfield" name="answer8" type="text" /><br>
+                    9位　<input class="Inputfield" name="answer9" type="text" /><br>
+                    10位　<input class="Inputfield" name="answer10" type="text" /><br>
+                    <br>
+
+                </div>
+                <br>
+                <!-- <input type="submit" value="送信" /> -->
+
+
+                <input type="button" value="テスト終了" name="StopButton" onclick="stopCheck()"><br><br>
+            </div>
+        </form>
+
+
+        <button onclick="myFunction()" id="copy" style="visibility:hidden;">Copy text</button><br><br>
+
+        <div style="position: absolute; opacity:0;">
+            <input name="answerResult" type="text" id="result" />
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
