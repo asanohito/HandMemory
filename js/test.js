@@ -15,6 +15,9 @@ var myHands = []; // hands detected by mediapipe
 
 var capture; // webcam capture, managed by p5.js
 
+var cap_w = 2732; //iPad Pro 12.9インチ(2732×2048)
+var cap_h = 2048;
+
 //画像
 let images = []; //暗記画像
 
@@ -111,7 +114,8 @@ function setup() {
     // console.log("video initialized");
     videoDataLoaded = true;
     // createCanvas(capture.width, capture.height);
-    createCanvas(980, 482); //スマホ横にしたときの可視領域
+    //createCanvas(980, 482); //スマホ横にしたときの可視領域
+    createCanvas(cap_w, cap_h);
     console.log(capture.width, capture.height);
   };
 
@@ -120,8 +124,8 @@ function setup() {
   textSize(100);
 
   fill(100);
-  rect(0, 0, 90, 482);
-  rect(890, 0, 90, 482);
+  rect(0, 0, 90, cap_h);
+  rect(cap_w - 90, 0, 90, cap_h);
 }
 
 document.addEventListener(
@@ -147,23 +151,23 @@ function touchStarted() {
     right_hand = false;
     fill(80);
     noStroke();
-    rect(0, 0, 90, 482);
-    rect(890, 0, 90, 482);
-  } else if (mouseX > 860) {
+    rect(0, 0, 90, cap_h);
+    rect(cap_w - 90, 0, 90, cap_h);
+  } else if (mouseX > cap_w - 120) {
     touch_hand = true;
     right_hand = true;
     fill(80);
     noStroke();
-    rect(0, 0, 90, 482);
-    rect(890, 0, 190, 482);
+    rect(0, 0, 90, cap_h);
+    rect(cap_w - 90, 0, 190, cap_h);
   }
 }
 function touchEnded() {
   touch_hand = false;
   fill(100);
   noStroke();
-  rect(0, 0, 90, 482);
-  rect(890, 0, 190, 482);
+  rect(0, 0, 90, cap_h);
+  rect(cap_w - 90, 0, 190, cap_h);
 }
 
 //配列の平均
@@ -321,7 +325,7 @@ function draw() {
 
     // first draw the debug video and annotations
     push();
-    image(img, 90, -80, 800, 640);
+    image(img, 90, -80, cap_w - 180, cap_w - 180);
     fill(255, 0, 0, 80);
     stroke(255);
     strokeWeight(3);
@@ -334,8 +338,8 @@ function draw() {
       fill(100);
     }
     noStroke();
-    rect(0, 0, 90, 482);
-    rect(890, 0, 190, 482);
+    rect(0, 0, 90, cap_w);
+    rect(cap_w - 90, 0, 190, cap_w);
     /*
   push();
   fill(255, 255, 0);

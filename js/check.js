@@ -19,10 +19,19 @@ function stopCheck() {
   var time = document.answerForm.myFormTime.value;
   //Inputfieldクラスを持つもの(回答1~10)を配列にいれる
   var ans_text = document.getElementsByClassName("Inputfield");
+  //disabled_checkboxクラスを持つもの(画像選択)を配列にいれる
+  var check_images = document.getElementsByClassName("disabled_checkbox");
 
   var temp = time; //コピー用データの格納
   for (var i = 0; i < ans_text.length; i++) {
     temp += "/" + ans_text[i].value; //間にスラッシュを入れてつなげる
+  }
+
+  for (var i = 0; i < check_images.length; i++) {
+    console.log(check_images[i].checked);
+    if (check_images[i].checked == true) {
+      temp += "/" + check_images[i].name; //間にスラッシュを入れてつなげる
+    }
   }
 
   document.getElementById("result").value = caesar(temp, 6);
@@ -38,7 +47,6 @@ function stopCheck() {
   var inputElement = document.querySelector('input[name="StopButton"]');
   inputElement.disabled = true; //一度しか押せない
   inputElement.style.backgroundColor = "#02328C"; //押したら色を変える
-
   //コピーボタンの表示
   document.getElementById("copy").style.visibility = "visible";
 }
@@ -85,3 +93,16 @@ function caesar(val, key) {
   }
   return result;
 }
+
+$(function () {
+  // 画像がクリックされた時の処理です。
+  $("img.thumbnail").on("click", function () {
+    if (!$(this).is(".checked")) {
+      // チェックが入っていない画像をクリックした場合、チェックを入れます。
+      $(this).addClass("checked");
+    } else {
+      // チェックが入っている画像をクリックした場合、チェックを外します。
+      $(this).removeClass("checked");
+    }
+  });
+});
