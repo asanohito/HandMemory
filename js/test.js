@@ -71,16 +71,16 @@ var touch_hand = false;
 // });
 
 function preload() {
-  // images[0] = loadImage("images/ADL.png");
-  // images[1] = loadImage("images/ALL.png");
-  // images[2] = loadImage("images/GBL.png");
-  // images[3] = loadImage("images/IEL.png");
-  // images[4] = loadImage("images/ISL.png");
-  // images[5] = loadImage("images/ITL.png");
-  // images[6] = loadImage("images/EEL.png");
-  // images[7] = loadImage("images/ATL.png");
-  // images[8] = loadImage("images/NLL.png");
-  // images[9] = loadImage("images/MKL.png");
+  images[0] = loadImage("images/ADL.png");
+  images[1] = loadImage("images/ALL.png");
+  images[2] = loadImage("images/GBL.png");
+  images[3] = loadImage("images/IEL.png");
+  images[4] = loadImage("images/ISL.png");
+  images[5] = loadImage("images/ITL.png");
+  images[6] = loadImage("images/EEL.png");
+  images[7] = loadImage("images/ATL.png");
+  images[8] = loadImage("images/NLL.png");
+  images[9] = loadImage("images/MKL.png");
 
   // Load the MediaPipe handpose model assets.
   handpose.load().then(function (_model) {

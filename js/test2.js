@@ -68,16 +68,16 @@ var touch_hand = false;
 // });
 
 function preload() {
-  // images[0] = loadImage("images/ADL.png");
-  // images[1] = loadImage("images/ALL.png");
-  // images[2] = loadImage("images/GBL.png");
-  // images[3] = loadImage("images/IEL.png");
-  // images[4] = loadImage("images/ISL.png");
-  // images[5] = loadImage("images/ITL.png");
-  // images[6] = loadImage("images/EEL.png");
-  // images[7] = loadImage("images/ATL.png");
-  // images[8] = loadImage("images/NLL.png");
-  // images[9] = loadImage("images/MKL.png");
+  images[0] = loadImage("images/ADL.png");
+  images[1] = loadImage("images/ALL.png");
+  images[2] = loadImage("images/GBL.png");
+  images[3] = loadImage("images/IEL.png");
+  images[4] = loadImage("images/ISL.png");
+  images[5] = loadImage("images/ITL.png");
+  images[6] = loadImage("images/EEL.png");
+  images[7] = loadImage("images/ATL.png");
+  images[8] = loadImage("images/NLL.png");
+  images[9] = loadImage("images/MKL.png");
 
   // Load the MediaPipe handpose model assets.
   handpose.load().then(function (_model) {
@@ -219,10 +219,10 @@ function drawShape(hands) {
           y = sumArray(avr_1y);
           if (right_hand) {
             image(images[0], x - 30, y - 30, 50, 30);
-            text(finger_text[0], x - 30, y + 10);
+            // text(finger_text[0], x - 30, y + 10);
           } else {
             image(images[5], x - 30, y - 30, 50, 30);
-            text(finger_text[9], x - 30, y + 10);
+            // text(finger_text[9], x - 30, y + 10);
           }
         }
 
