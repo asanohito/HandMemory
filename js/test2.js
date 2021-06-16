@@ -325,7 +325,7 @@ function draw() {
 
     // first draw the debug video and annotations
     push();
-    image(img, 100, 0, 2532, 1899);
+    image(img, 90, -80, 800, 640);
     fill(255, 0, 0, 80);
     stroke(255);
     strokeWeight(3);
