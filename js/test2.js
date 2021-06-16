@@ -15,21 +15,25 @@ var myHands = []; // hands detected by mediapipe
 
 var capture; // webcam capture, managed by p5.js
 
+var dis_w = 2732; //iPad Pro 12.9インチ(2732×2048)
+var dis_h = 2048;
+
 //画像
 let images = []; //暗記画像
 
-let finger_text = [
-  "1 宮城県",
-  "2 鹿児島県",
-  "3 群馬県",
-  "4 福岡県",
-  "5 岐阜県",
-  "6 佐賀県",
-  "7 奈良県",
-  "8 岡山県",
-  "9 愛知県",
-  "10 大分県",
-]; //暗記文字
+//暗記文字
+// let finger_text = [
+//   "1 宮城県",
+//   "2 鹿児島県",
+//   "3 群馬県",
+//   "4 福岡県",
+//   "5 岐阜県",
+//   "6 佐賀県",
+//   "7 奈良県",
+//   "8 岡山県",
+//   "9 愛知県",
+//   "10 大分県",
+// ];
 
 //フレーム間の平均
 let avr_1x = new Array(4);
@@ -111,7 +115,7 @@ function setup() {
     // console.log("video initialized");
     videoDataLoaded = true;
     // createCanvas(capture.width, capture.height);
-    createCanvas(980, 482); //スマホ横にしたときの可視領域
+    createCanvas(dis_w, dis_h); //スマホ横にしたときの可視領域
     console.log(capture.width, capture.height);
   };
 
@@ -321,7 +325,7 @@ function draw() {
 
     // first draw the debug video and annotations
     push();
-    image(img, 90, -80, 800, 640);
+    image(img, 100, 0, 2532, 1899);
     fill(255, 0, 0, 80);
     stroke(255);
     strokeWeight(3);
