@@ -159,8 +159,8 @@ function touchStarted() {
     right_hand = true;
     fill(80);
     noStroke();
-    rect(0, 0, 90, cap_h);
-    rect(2632, 0, 190, cap_h);
+    rect(0, 0, 100, cap_h);
+    rect(2632, 0, 100, cap_h);
   }
 }
 function touchEnded() {
@@ -340,8 +340,8 @@ function draw() {
       fill(100);
     }
     noStroke();
-    rect(0, 0, 90, cap_w);
-    rect(2632, 0, 190, cap_w);
+    rect(0, 0, 100, cap_w);
+    rect(2632, 0, 100, cap_w);
     /*
   push();
   fill(255, 255, 0);
