@@ -15,8 +15,8 @@ var myHands = []; // hands detected by mediapipe
 
 var capture; // webcam capture, managed by p5.js
 
-var dis_w = 980; //iPad Pro 12.9インチ(2732×2048)
-var dis_h = 482;
+var dis_w = 1200; //iPad Pro 12.9インチ(2732×2048)
+var dis_h = 900;
 
 //画像
 let images = []; //暗記画像
@@ -325,7 +325,7 @@ function draw() {
 
     // first draw the debug video and annotations
     push();
-    image(img, 90, -80, 800, 640);
+    image(img, 100, 100, 900, 700);
     fill(255, 0, 0, 80);
     stroke(255);
     strokeWeight(3);
