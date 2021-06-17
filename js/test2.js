@@ -222,10 +222,10 @@ function drawShape(hands) {
           x = adjustment * sumArray(avr_1x) + 90;
           y = adjustment * sumArray(avr_1y) + 50;
           if (right_hand) {
-            image(images[0], x - 30, y - 30, 50, 30);
+            image(images[0], x - 20, y - 30, 100, 30);
             // text(finger_text[0], x - 30, y + 10);
           } else {
-            image(images[5], x - 30, y - 30, 50, 30);
+            image(images[5], x - 20, y - 30, 100, 30);
             // text(finger_text[9], x - 30, y + 10);
           }
         }
@@ -238,10 +238,10 @@ function drawShape(hands) {
           x = adjustment * sumArray(avr_2x) + 90;
           y = adjustment * sumArray(avr_2y) + 50;
           if (right_hand) {
-            image(images[1], x - 30, y - 30, 100, 60);
+            image(images[1], x - 20, y - 30, 100, 60);
             // text(finger_text[1], x - 30, y + 10);
           } else {
-            image(images[6], x - 30, y - 30, 100, 60);
+            image(images[6], x - 20, y - 30, 100, 60);
             // text(finger_text[8], x - 30, y + 10);
           }
         }
@@ -254,10 +254,10 @@ function drawShape(hands) {
           x = adjustment * sumArray(avr_3x) + 90;
           y = adjustment * sumArray(avr_3y) + 50;
           if (right_hand) {
-            image(images[2], x - 30, y - 30, 100, 60);
+            image(images[2], x - 20, y - 30, 100, 60);
             // text(finger_text[2], x - 30, y + 10);
           } else {
-            image(images[7], x - 30, y - 30, 100, 60);
+            image(images[7], x - 20, y - 30, 100, 60);
             // text(finger_text[7], x - 30, y + 10);
           }
         }
@@ -270,10 +270,10 @@ function drawShape(hands) {
           x = adjustment * sumArray(avr_4x) + 90;
           y = adjustment * sumArray(avr_4y) + 50;
           if (right_hand) {
-            image(images[3], x - 30, y - 30, 100, 60);
+            image(images[3], x - 20, y - 30, 100, 60);
             // text(finger_text[3], x - 30, y + 10);
           } else {
-            image(images[8], x - 30, y - 30, 100, 60);
+            image(images[8], x - 20, y - 30, 100, 60);
             // text(finger_text[6], x - 30, y + 10);
           }
         }
@@ -286,10 +286,10 @@ function drawShape(hands) {
           x = adjustment * sumArray(avr_5x) + 90;
           y = adjustment * sumArray(avr_5y) + 50;
           if (right_hand) {
-            image(images[4], x - 30, y - 30, 100, 60);
+            image(images[4], x - 20, y - 30, 100, 60);
             // text(finger_text[4], x - 30, y + 10);
           } else {
-            image(images[9], x - 30, y - 30, 100, 60);
+            image(images[9], x - 20, y - 30, 100, 60);
             // text(finger_text[5], x - 30, y + 10);
           }
         }
