@@ -19,18 +19,7 @@ var capture; // webcam capture, managed by p5.js
 let images = []; //暗記画像
 
 //暗記文字
-// let finger_text = [
-//   "1 宮城県",
-//   "2 鹿児島県",
-//   "3 群馬県",
-//   "4 福岡県",
-//   "5 岐阜県",
-//   "6 佐賀県",
-//   "7 奈良県",
-//   "8 岡山県",
-//   "9 愛知県",
-//   "10 大分県",
-// ];
+let finger_text = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
 //フレーム間の平均
 let avr_1x = new Array(4);
@@ -69,16 +58,16 @@ var touch_hand = false;
 // });
 
 function preload() {
-  images[0] = loadImage("images/ADL.png");
-  images[1] = loadImage("images/ALL.png");
-  images[2] = loadImage("images/GBL.png");
-  images[3] = loadImage("images/IEL.png");
-  images[4] = loadImage("images/ISL.png");
-  images[5] = loadImage("images/ITL.png");
-  images[6] = loadImage("images/EEL.png");
-  images[7] = loadImage("images/ATL.png");
-  images[8] = loadImage("images/NLL.png");
-  images[9] = loadImage("images/MKL.png");
+  images[0] = loadImage("images/man1.png");
+  images[1] = loadImage("images/man2.png");
+  images[2] = loadImage("images/man3.png");
+  images[3] = loadImage("images/man4.png");
+  images[4] = loadImage("images/man5.png");
+  images[5] = loadImage("images/woman1.png");
+  images[6] = loadImage("images/woman2.png");
+  images[7] = loadImage("images/woman3.png");
+  images[8] = loadImage("images/woman4.png");
+  images[9] = loadImage("images/woman5.png");
 
   // Load the MediaPipe handpose model assets.
   handpose.load().then(function (_model) {

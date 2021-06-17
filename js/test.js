@@ -1,4 +1,4 @@
-// 右手親指1 + 左手小指6s
+// 右手親指1 + 左手小指6
 /*
  * https://editor.p5js.org/LingDong-/sketches/1viPqbRMv
  */
@@ -15,50 +15,40 @@ var myHands = []; // hands detected by mediapipe
 
 var capture; // webcam capture, managed by p5.js
 
-var cap_w = 2732; //iPad Pro 12.9インチ(2732×2048)
-var cap_h = 2048;
+var dis_w = 1400; //iPad Pro 12.9インチ(2732×2048)
+var dis_h = 900;
 
 //画像
 let images = []; //暗記画像
 
-let finger_text = [
-  "1 宮城県",
-  "2 鹿児島県",
-  "3 群馬県",
-  "4 福岡県",
-  "5 岐阜県",
-  "6 佐賀県",
-  "7 奈良県",
-  "8 岡山県",
-  "9 愛知県",
-  "10 大分県",
-]; //暗記文字
+//暗記文字
+let finger_text = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
 //フレーム間の平均
-let avr_1x = new Array(4);
-let avr_2x = new Array(4);
-let avr_3x = new Array(4);
-let avr_4x = new Array(4);
-let avr_5x = new Array(4);
+let avr_1x = new Array(6);
+let avr_2x = new Array(6);
+let avr_3x = new Array(6);
+let avr_4x = new Array(6);
+let avr_5x = new Array(6);
 
-let avr_1y = new Array(4);
-let avr_2y = new Array(4);
-let avr_3y = new Array(4);
-let avr_4y = new Array(4);
-let avr_5y = new Array(4);
+let avr_1y = new Array(6);
+let avr_2y = new Array(6);
+let avr_3y = new Array(6);
+let avr_4y = new Array(6);
+let avr_5y = new Array(6);
 
-let avr_6x = new Array(4);
-let avr_7x = new Array(4);
-let avr_8x = new Array(4);
-let avr_9x = new Array(4);
-let avr_10x = new Array(4);
-let avr_6y = new Array(4);
-let avr_7y = new Array(4);
-let avr_8y = new Array(4);
-let avr_9y = new Array(4);
-let avr_10y = new Array(4);
+let avr_6x = new Array(6);
+let avr_7x = new Array(6);
+let avr_8x = new Array(6);
+let avr_9x = new Array(6);
+let avr_10x = new Array(6);
+let avr_6y = new Array(6);
+let avr_7y = new Array(6);
+let avr_8y = new Array(6);
+let avr_9y = new Array(6);
+let avr_10y = new Array(6);
 
-//触れいている手が右手か左手か
+//右手か左手か
 var right_hand = true;
 //画面に触れているか
 var touch_hand = false;
@@ -71,16 +61,16 @@ var touch_hand = false;
 // });
 
 function preload() {
-  images[0] = loadImage("images/ADL.png");
-  images[1] = loadImage("images/ALL.png");
-  images[2] = loadImage("images/GBL.png");
-  images[3] = loadImage("images/IEL.png");
-  images[4] = loadImage("images/ISL.png");
-  images[5] = loadImage("images/ITL.png");
-  images[6] = loadImage("images/EEL.png");
-  images[7] = loadImage("images/ATL.png");
-  images[8] = loadImage("images/NLL.png");
-  images[9] = loadImage("images/MKL.png");
+  images[0] = loadImage("images/man1.png");
+  images[1] = loadImage("images/man2.png");
+  images[2] = loadImage("images/man3.png");
+  images[3] = loadImage("images/man4.png");
+  images[4] = loadImage("images/man5.png");
+  images[5] = loadImage("images/woman1.png");
+  images[6] = loadImage("images/woman2.png");
+  images[7] = loadImage("images/woman3.png");
+  images[8] = loadImage("images/woman4.png");
+  images[9] = loadImage("images/woman5.png");
 
   // Load the MediaPipe handpose model assets.
   handpose.load().then(function (_model) {
@@ -114,8 +104,7 @@ function setup() {
     // console.log("video initialized");
     videoDataLoaded = true;
     // createCanvas(capture.width, capture.height);
-    //createCanvas(980, 482); //スマホ横にしたときの可視領域
-    createCanvas(cap_w, cap_h);
+    createCanvas(dis_w, dis_h); //スマホ横にしたときの可視領域
     console.log(capture.width, capture.height);
   };
 
@@ -124,8 +113,8 @@ function setup() {
   textSize(100);
 
   fill(100);
-  rect(0, 0, 100, cap_h);
-  rect(2632, 0, 100, cap_h);
+  rect(0, 0, 90, dis_h);
+  rect(1290, 0, 90, dis_h);
 }
 
 document.addEventListener(
@@ -146,30 +135,28 @@ document.addEventListener(
 // }
 
 function touchStarted() {
-  //タッチしている間
-  if (mouseX < 120) {
+  if (mouseX < 300) {
     touch_hand = true;
     right_hand = false;
     fill(80);
     noStroke();
-    rect(0, 0, 100, cap_h);
-    rect(2632, 0, 100, cap_h);
-  } else if (mouseX > 2600) {
+    rect(0, 0, 90, dis_h);
+    rect(1290, 0, 90, dis_h);
+  } else if (mouseX > 1100) {
     touch_hand = true;
     right_hand = true;
     fill(80);
     noStroke();
-    rect(0, 0, 100, cap_h);
-    rect(2632, 0, 100, cap_h);
+    rect(0, 0, 90, dis_h);
+    rect(1290, 0, 90, dis_h);
   }
 }
 function touchEnded() {
-  //タッチしていない間
   touch_hand = false;
   fill(100);
   noStroke();
-  rect(0, 0, 100, cap_h);
-  rect(2632, 0, 100, cap_h);
+  rect(0, 0, 90, dis_h);
+  rect(1290, 0, 90, dis_h);
 }
 
 //配列の平均
@@ -178,7 +165,7 @@ const sumArray = (array) => {
   for (let i = 0, len = array.length; i < len; i++) {
     sum += array[i];
   }
-  return sum / 4;
+  return sum / 6;
 };
 /*
 // タッチデバイスの情報
@@ -213,7 +200,7 @@ function drawShape(hands) {
       var [x, y, z] = landmarks[j]; //指の位置座標取得
       // x = x*2.1;
       // y = y*2.1;
-      var adjustment = 1.25; //画面サイズに合わせて暗記項目の配置を調整
+      var adjustment = 1.875; //画面サイズに合わせて暗記項目の配置を調整
       if (touch_hand) {
         if (j == 4) {
           //配列の先頭を削除、末尾に追加
@@ -222,13 +209,13 @@ function drawShape(hands) {
           avr_1x.push(x);
           avr_1y.push(y);
           x = adjustment * sumArray(avr_1x) + 90;
-          y = sumArray(avr_1y);
+          y = adjustment * sumArray(avr_1y) + 50;
           if (!right_hand) {
-            image(images[0], x - 30, y - 30, 50, 30);
-            // text(finger_text[0], x - 30, y + 10);
+            image(images[0], x - 20, y - 30, 100, 100);
+            text(finger_text[0], x - 10, y + 10);
           } else {
-            image(images[5], x - 30, y - 30, 50, 30);
-            // text(finger_text[9], x - 30, y + 10);
+            image(images[5], x - 20, y - 30, 100, 100);
+            text(finger_text[9], x - 10, y + 10);
           }
         }
 
@@ -238,13 +225,13 @@ function drawShape(hands) {
           avr_2x.push(x);
           avr_2y.push(y);
           x = adjustment * sumArray(avr_2x) + 90;
-          y = sumArray(avr_2y);
+          y = adjustment * sumArray(avr_2y) + 50;
           if (!right_hand) {
-            image(images[1], x - 30, y - 30, 50, 30);
-            // text(finger_text[1], x - 30, y + 10);
+            image(images[1], x - 20, y - 30, 100, 100);
+            text(finger_text[1], x - 30, y + 10);
           } else {
-            image(images[6], x - 30, y - 30, 50, 30);
-            // text(finger_text[8], x - 30, y + 10);
+            image(images[6], x - 20, y - 30, 100, 100);
+            text(finger_text[8], x - 10, y + 10);
           }
         }
 
@@ -254,13 +241,13 @@ function drawShape(hands) {
           avr_3x.push(x);
           avr_3y.push(y);
           x = adjustment * sumArray(avr_3x) + 90;
-          y = sumArray(avr_3y);
+          y = adjustment * sumArray(avr_3y) + 50;
           if (!right_hand) {
-            image(images[2], x - 30, y - 30, 50, 30);
-            // text(finger_text[2], x - 30, y + 10);
+            image(images[2], x - 20, y - 30, 100, 100);
+            text(finger_text[2], x - 10, y + 10);
           } else {
-            image(images[7], x - 30, y - 30, 50, 30);
-            // text(finger_text[7], x - 30, y + 10);
+            image(images[7], x - 20, y - 30, 100, 100);
+            text(finger_text[7], x - 10, y + 10);
           }
         }
 
@@ -270,13 +257,13 @@ function drawShape(hands) {
           avr_4x.push(x);
           avr_4y.push(y);
           x = adjustment * sumArray(avr_4x) + 90;
-          y = sumArray(avr_4y);
+          y = adjustment * sumArray(avr_4y) + 50;
           if (!right_hand) {
-            image(images[3], x - 30, y - 30, 50, 30);
-            // text(finger_text[3], x - 30, y + 10);
+            image(images[3], x - 20, y - 30, 100, 100);
+            text(finger_text[3], x - 10, y + 10);
           } else {
-            image(images[8], x - 30, y - 30, 50, 30);
-            // text(finger_text[6], x - 30, y + 10);
+            image(images[8], x - 20, y - 30, 100, 100);
+            text(finger_text[6], x - 10, y + 10);
           }
         }
 
@@ -286,13 +273,13 @@ function drawShape(hands) {
           avr_5x.push(x);
           avr_5y.push(y);
           x = adjustment * sumArray(avr_5x) + 90;
-          y = sumArray(avr_5y);
+          y = adjustment * sumArray(avr_5y) + 50;
           if (!right_hand) {
-            image(images[4], x - 30, y - 30, 50, 30);
-            // text(finger_text[4], x - 30, y + 10);
+            image(images[4], x - 20, y - 30, 100, 100);
+            text(finger_text[4], x - 30, y + 10);
           } else {
-            image(images[9], x - 30, y - 30, 50, 30);
-            // text(finger_text[5], x - 30, y + 10);
+            image(images[9], x - 20, y - 30, 100, 100);
+            text(finger_text[5], x - 30, y + 10);
           }
         }
       }
@@ -327,7 +314,7 @@ function draw() {
 
     // first draw the debug video and annotations
     push();
-    image(img, 100, 0, 2532, 1899);
+    image(img, 90, 50, 1200, 900);
     fill(255, 0, 0, 80);
     stroke(255);
     strokeWeight(3);
@@ -340,8 +327,8 @@ function draw() {
       fill(100);
     }
     noStroke();
-    rect(0, 0, 100, cap_w);
-    rect(2632, 0, 100, cap_w);
+    rect(0, 0, 90, dis_h);
+    rect(1290, 0, 90, dis_h);
     /*
   push();
   fill(255, 255, 0);
