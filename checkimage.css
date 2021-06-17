@@ -123,3 +123,8 @@ table.image_table td .image_box {
     チェックボックスの非表示を解除します。 */
   display: block;
 }
+
+table td {
+  /*table内のthに対して*/
+  padding: 5px 10px; /*上下5pxで左右10px*/
+}
