@@ -62,15 +62,15 @@ var touch_hand = false;
 
 function preload() {
   images[0] = loadImage("images/man1.png");
-  images[1] = loadImage("images/man2.png");
-  images[2] = loadImage("images/man3.png");
-  images[3] = loadImage("images/man4.png");
-  images[4] = loadImage("images/man5.png");
-  images[5] = loadImage("images/woman1.png");
-  images[6] = loadImage("images/woman2.png");
-  images[7] = loadImage("images/woman3.png");
-  images[8] = loadImage("images/woman4.png");
-  images[9] = loadImage("images/woman5.png");
+  images[1] = loadImage("images/woman2.png");
+  images[2] = loadImage("images/man5.png");
+  images[3] = loadImage("images/man2.png");
+  images[4] = loadImage("images/woman8.png");
+  images[5] = loadImage("images/man9.png");
+  images[6] = loadImage("images/woman9.png");
+  images[7] = loadImage("images/woman7.png");
+  images[8] = loadImage("images/man8.png");
+  images[9] = loadImage("images/woman4.png");
 
   // Load the MediaPipe handpose model assets.
   handpose.load().then(function (_model) {
@@ -214,7 +214,7 @@ function drawShape(hands) {
             image(images[0], x - 60, y - 100, 120, 120);
             // text(finger_text[0], x - 10, y + 10);
           } else {
-            image(images[5], x - 60, y - 30, 120, 120);
+            image(images[9], x - 60, y - 100, 120, 120);
             // text(finger_text[9], x - 10, y + 10);
           }
         }
@@ -230,7 +230,7 @@ function drawShape(hands) {
             image(images[1], x - 60, y - 100, 120, 120);
             // text(finger_text[1], x - 30, y + 10);
           } else {
-            image(images[6], x - 60, y - 100, 120, 120);
+            image(images[8], x - 60, y - 100, 120, 120);
             // text(finger_text[8], x - 10, y + 10);
           }
         }
@@ -262,7 +262,7 @@ function drawShape(hands) {
             image(images[3], x - 60, y - 100, 120, 120);
             // text(finger_text[3], x - 10, y + 10);
           } else {
-            image(images[8], x - 60, y - 100, 120, 120);
+            image(images[6], x - 60, y - 100, 120, 120);
             // text(finger_text[6], x - 10, y + 10);
           }
         }
@@ -278,7 +278,7 @@ function drawShape(hands) {
             image(images[4], x - 60, y - 100, 120, 120);
             // text(finger_text[4], x - 30, y + 10);
           } else {
-            image(images[9], x - 60, y - 100, 120, 120);
+            image(images[5], x - 60, y - 100, 120, 120);
             // text(finger_text[5], x - 30, y + 10);
           }
         }
