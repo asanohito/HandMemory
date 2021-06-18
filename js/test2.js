@@ -214,7 +214,7 @@ function drawShape(hands) {
             image(images[0], x - 60, y - 100, 120, 120);
             // text(finger_text[0], x - 10, y + 10);
           } else {
-            image(images[5], x - 60, y - 100, 120, 120);
+            image(images[9], x - 60, y - 100, 120, 120);
             // text(finger_text[9], x - 10, y + 10);
           }
         }
@@ -230,7 +230,7 @@ function drawShape(hands) {
             image(images[1], x - 60, y - 100, 120, 120);
             // text(finger_text[1], x - 30, y + 10);
           } else {
-            image(images[6], x - 60, y - 100, 120, 120);
+            image(images[8], x - 60, y - 100, 120, 120);
             // text(finger_text[8], x - 10, y + 10);
           }
         }
@@ -262,7 +262,7 @@ function drawShape(hands) {
             image(images[3], x - 60, y - 100, 120, 120);
             // text(finger_text[3], x - 10, y + 10);
           } else {
-            image(images[8], x - 60, y - 100, 120, 120);
+            image(images[6], x - 60, y - 100, 120, 120);
             // text(finger_text[6], x - 10, y + 10);
           }
         }
@@ -278,7 +278,7 @@ function drawShape(hands) {
             image(images[4], x - 60, y - 100, 120, 120);
             // text(finger_text[4], x - 30, y + 10);
           } else {
-            image(images[9], x - 60, y - 100, 120, 120);
+            image(images[5], x - 60, y - 100, 120, 120);
             // text(finger_text[5], x - 30, y + 10);
           }
         }
