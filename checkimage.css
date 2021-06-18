@@ -75,7 +75,7 @@ input.Inputfield {
   border-radius: 0.27em; /* 角丸 */
   padding: 0.5em; /* 内側の余白量 */
   background-color: rgb(255, 255, 255); /* 背景色 */
-  width: 2em; /* 横幅 */
+  width: 6em; /* 横幅 */
   height: auto; /* 高さ */
   font-size: 1em; /* 文字サイズ */
   margin: 1em 0; /* 前後の隙間 */
