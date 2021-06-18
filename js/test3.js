@@ -314,6 +314,9 @@ function draw() {
 
     // first draw the debug video and annotations
     push();
+    noStroke();
+    fill(80);
+    rect(0, 0, dis_w, dis_h);
     image(img, 90, 50, 1200, 900);
     fill(255, 0, 0, 80);
     stroke(255);
