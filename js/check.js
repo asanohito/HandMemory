@@ -24,17 +24,23 @@ function stopCheck() {
 
   var temp = time; //コピー用データの格納
   for (var i = 0; i < ans_text.length; i++) {
-    temp += "/" + ans_text[i].value; //間にスラッシュを入れてつなげる
-  }
-
-  for (var i = 0; i < check_images.length; i++) {
-    console.log(check_images[i].checked);
     if (check_images[i].checked == true) {
-      temp += "/" + check_images[i].name; //間にスラッシュを入れてつなげる
+      //画像のチェックをつけていたら
+      temp += "/" + check_images[i].name + ": "; //間にスラッシュを入れてつなげる
+    }
+    if (ans_text[i].value.length > 0) {
+      //テキストが入力されていたら
+      temp += ans_text[i].name + "( " + ans_text[i].value + " )"; //間にスラッシュを入れてつなげる
     }
   }
 
-  document.getElementById("result").value = caesar(temp, 6);
+  // for (var i = 0; i < check_images.length; i++) {
+  //   if (check_images[i].checked == true) {
+  //     temp += "/" + check_images[i].name; //間にスラッシュを入れてつなげる
+  //   }
+  // }
+
+  document.getElementById("result").value = caesar(temp, 5);
 
   // var inputElement = document.querySelector('input[name="answer1"]');
   // inputElement.disabled = true;

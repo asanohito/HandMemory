@@ -17,16 +17,17 @@
 
 <body>
     <div class="outer">
-
+        <div class="question">暗記した画像をクリックして選択してください<br>
+            画像をどの指に結びつけたのかと、指の番号についても記述してください<br>
+            記述例) 画像を右親指に結びつけ、指の番号が1の場合 → 右親指1</div><br>
+            ※ わからない場合は空欄にしてください<br><br>
         <form name="answerForm" autocomplete="off">
             <input type="button" value="テスト開始" name="startButton" onclick="startCheck()"><br>
             <input type="hidden" size="28" name="myFormTime" id="ansTime"><br>
             <div id="answerHide" style="visibility:hidden;">
-                <div class="question">暗記した画像をクリックして選択し、番号を記述してください。<br>
-                    また、どの指に結びつけたのかも記述してください<br><br>
-                    記述例) 6、右親指</div><br>
                 
-                ※ わからない場合は空欄にしてください<br><br>
+                
+              
                 <div class="inner">
 
                     <div id="main">
@@ -34,21 +35,21 @@
                             <tr>
                                 <td>
                                     <div class="image_box">
-                                        <!-- labelで画像とcheckboxを紐付け -->
+                                        <!-- labelで画像とcheckboxを紐付け、正解画像のnameはch_cor1~10 -->
                                         <label for="cheimg1">
                                         <img class="thumbnail" src="images/man1.png" alt="foo" /></label> 
-                                        <input class="disabled_checkbox" name="che1" id="cheimg1"  type="checkbox"  />
+                                        <input class="disabled_checkbox" name="ch_cor1" id="cheimg1"  type="checkbox"  />
 
                                     </div>
-                                    <input class="Inputfield" name="answer1" type="text" />
+                                    <input class="Inputfield" name="tx_cor1" type="text" />
                                 </td>
                                 <td>
                                     <div class="image_box">
                                         <label for="cheimg2">
                                         <img class="thumbnail" src="images/man2.png" alt="foo" /></label>
-                                        <input class="disabled_checkbox" name="che2" id="cheimg2" type="checkbox"  />
+                                        <input class="disabled_checkbox" name="ch_cor4" id="cheimg2" type="checkbox"  />
                                     </div>
-                                    <input class="Inputfield" name="answer2" type="text" />
+                                    <input class="Inputfield" name="tx_cor4" type="text" />
                                 </td>
                                 <td>
                                     <div class="image_box">
@@ -70,9 +71,9 @@
                                     <div class="image_box">
                                         <label for="cheimg5">
                                         <img class="thumbnail" src="images/man5.png" alt="foo" /></label>
-                                        <input class="disabled_checkbox" name="che5" id="cheimg5" type="checkbox"  />
+                                        <input class="disabled_checkbox" name="ch_cor3" id="cheimg5" type="checkbox"  />
                                     </div>
-                                    <input class="Inputfield" name="answer5" type="text" />
+                                    <input class="Inputfield" name="tx_cor3" type="text" />
                                 </td>
                             </tr>
                             <tr>
@@ -97,17 +98,17 @@
                                     <div class="image_box">
                                         <label for="cheimg8">
                                         <img class="thumbnail" src="images/man8.png" alt="foo" /></label>
-                                        <input class="disabled_checkbox" name="che8" id="cheimg8" type="checkbox"  />
+                                        <input class="disabled_checkbox" name="ch_cor9" id="cheimg8" type="checkbox"  />
                                     </div>
-                                    <input class="Inputfield" name="answer8" type="text" />
+                                    <input class="Inputfield" name="tx_cor9" type="text" />
                                 </td>
                                 <td>
                                     <div class="image_box">
                                         <label for="cheimg9">
                                         <img class="thumbnail" src="images/man9.png" alt="foo" /></label>
-                                        <input class="disabled_checkbox" name="che9" id="cheimg9" type="checkbox"  />
+                                        <input class="disabled_checkbox" name="ch_cor6" id="cheimg9" type="checkbox"  />
                                     </div>
-                                    <input class="Inputfield" name="answer9" type="text" />
+                                    <input class="Inputfield" name="tx_cor6" type="text" />
                                 </td>
                                 <td>
                                     <div class="image_box">
@@ -131,9 +132,9 @@
                                     <div class="image_box">
                                         <label for="cheimg12">
                                         <img class="thumbnail" src="images/woman2.png" alt="foo" /></label>
-                                        <input class="disabled_checkbox" name="che12" id="cheimg12" type="checkbox"  />
+                                        <input class="disabled_checkbox" name="ch_cor2" id="cheimg12" type="checkbox"  />
                                     </div>
-                                    <input class="Inputfield" name="answer12" type="text" />
+                                    <input class="Inputfield" name="tx_cor2" type="text" />
                                 </td>
                                 <td>
                                     <div class="image_box">
@@ -147,9 +148,9 @@
                                     <div class="image_box">
                                         <label for="cheimg14">
                                         <img class="thumbnail" src="images/woman4.png" alt="foo" /></label>
-                                        <input class="disabled_checkbox" name="che14" id="cheimg14" type="checkbox"  />
+                                        <input class="disabled_checkbox" name="ch_cor10" id="cheimg14" type="checkbox"  />
                                     </div>
-                                    <input class="Inputfield" name="answer14" type="text" />
+                                    <input class="Inputfield" name="tx_cor10" type="text" />
                                 </td>
                                 <td>
                                     <div class="image_box">
@@ -174,25 +175,25 @@
                                     <div class="image_box">
                                         <label for="cheimg17">
                                         <img class="thumbnail" src="images/woman7.png" alt="foo" /></label>
-                                        <input class="disabled_checkbox" name="che17" id="cheimg17" type="checkbox"  />
+                                        <input class="disabled_checkbox" name="ch_cor8" id="cheimg17" type="checkbox"  />
                                     </div>
-                                    <input class="Inputfield" name="answer17" type="text" />
+                                    <input class="Inputfield" name="tx_cor8" type="text" />
                                 </td>
                                 <td>
                                     <div class="image_box">
                                         <label for="cheimg18">
                                         <img class="thumbnail" src="images/woman8.png" alt="foo" /></label>
-                                        <input class="disabled_checkbox" name="che18" id="cheimg18" type="checkbox"  />
+                                        <input class="disabled_checkbox" name="ch_cor5" id="cheimg18" type="checkbox"  />
                                     </div>
-                                    <input class="Inputfield" name="answer18" type="text" />
+                                    <input class="Inputfield" name="tx_cor5" type="text" />
                                 </td>
                                 <td>
                                     <div class="image_box">
                                         <label for="cheimg19">
                                         <img class="thumbnail" src="images/woman9.png" alt="foo" /></label>
-                                        <input class="disabled_checkbox" name="che19" id="cheimg19" type="checkbox"  />
+                                        <input class="disabled_checkbox" name="ch_cor7" id="cheimg19" type="checkbox"  />
                                     </div>
-                                    <input class="Inputfield" name="answer19" type="text" />
+                                    <input class="Inputfield" name="tx_cor7" type="text" />
                                 </td>
                                 <td>
                                     <div class="image_box">
