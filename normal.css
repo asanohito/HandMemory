@@ -12,7 +12,7 @@ body {
 }
 
 p {
-  padding: 10%;
+  padding: 8%;
 }
 .number {
   font-size: 2em;
@@ -29,6 +29,7 @@ img.thumbnail {
   height: 100%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 30%;
 }
 
 table.image_table td {
@@ -45,8 +46,8 @@ button {
 
   /* 整える */
   margin: 1em 0; /* 前後の隙間 */
-  padding: 0.6em 1em; /* 塗りの余白 */
-  font-size: 1em; /* フォントサイズ */
+  padding: 1.2em 2em; /* 塗りの余白 */
+  font-size: 1.2em; /* フォントサイズ */
   background-color: #6b6b6b; /* 背景色 */
   color: #fff; /* テキストカラー */
   cursor: pointer; /* カーソルを指マークに */
