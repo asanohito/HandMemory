@@ -1,14 +1,16 @@
 let imageNumber = 0;
 function changeImage() {
   if (imageNumber == 0) {
-    document.getElementById("iNumber2").style.visibility = "visible";
-    document.getElementById("iNumber1").style.visibility = "collapse";
+    document.getElementById("iNumber2").style.display = "block";
+    document.getElementById("iNumber1").style.display = "none";
+    document.getElementById("iNumber2_text").style.display = "block";
+    document.getElementById("iNumber1_text").style.display = "none";
     imageNumber = 1;
-    console.log(imageNumber);
   } else {
-    document.getElementById("iNumber1").style.visibility = "visible";
-    document.getElementById("iNumber2").style.visibility = "collapse";
+    document.getElementById("iNumber1").style.display = "block";
+    document.getElementById("iNumber2").style.display = "none";
+    document.getElementById("iNumber1_text").style.display = "block";
+    document.getElementById("iNumber2_text").style.display = "none";
     imageNumber = 0;
-    console.log(imageNumber);
   }
 }

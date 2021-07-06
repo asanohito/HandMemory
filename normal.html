@@ -12,10 +12,12 @@
 
 <body>
     <p></p>
-    <br>
     <div class="inner">
+
+        <div class="number" id="iNumber1_text" style="display:block">①〜⑤の画像を表示中</div>
+        <div class="number" id="iNumber2_text" style="display:none">⑥〜⑩の画像を表示中</div>
     <table class="image_table" border="0">
-        <tr id="iNumber1" style="visibility:visible;">
+        <tr id="iNumber1" style="display:block">
             <td>
                 <img class="thumbnail" src="images/man1.png" alt="foo" />
             </td>
@@ -28,7 +30,8 @@
             <td><img class="thumbnail" src="images/woman8.png" alt="foo" /></td>
         </tr>
 
-        <tr id="iNumber2" style="visibility:collapse;">
+        <tr id="iNumber2" style="display:none">
+            
             <td>
                 <img class="thumbnail" src="images/man9.png" alt="foo" />
             </td>
@@ -42,7 +45,6 @@
         </tr>
     </table>
     <p></p>
-    <br><br>
     <button type="button" onclick="changeImage()">切り替え</button>
 
 </div>

@@ -12,9 +12,12 @@ body {
 }
 
 p {
-  padding: 8%;
+  padding: 10%;
 }
-
+.number {
+  font-size: 2em;
+  margin: 5%;
+}
 .inner {
   display: inline-block;
   line-height: 2em;
