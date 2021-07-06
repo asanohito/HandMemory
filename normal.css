@@ -9,6 +9,7 @@ body {
   color: #313131;
   line-height: 2em;
   text-align: center;
+  touch-action: manipulation;
 }
 
 p {
