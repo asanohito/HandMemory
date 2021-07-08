@@ -19,6 +19,8 @@ function stopCheck() {
   var time = document.answerForm.myFormTime.value;
   //Inputfieldクラスを持つもの(回答1~10)を配列にいれる
   var ans_text = document.getElementsByClassName("Inputfield");
+  //Inputfield_numクラスを持つもの(回答1~10)を配列にいれる
+  var ans_text_num = document.getElementsByClassName("Inputfield_num");
   //disabled_checkboxクラスを持つもの(画像選択)を配列にいれる
   var check_images = document.getElementsByClassName("disabled_checkbox");
 
@@ -31,6 +33,10 @@ function stopCheck() {
     if (ans_text[i].value.length > 0) {
       //テキストが入力されていたら
       temp += ans_text[i].name + "( " + ans_text[i].value + " )"; //間にスラッシュを入れてつなげる
+    }
+    if (ans_text_num[i].value.length > 0) {
+      //テキストが入力されていたら
+      temp += ans_text_num[i].name + "( " + ans_text_num[i].value + " )"; //間にスラッシュを入れてつなげる
     }
   }
 
