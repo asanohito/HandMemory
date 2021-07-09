@@ -25,7 +25,7 @@ function stopCheck() {
   var check_images = document.getElementsByClassName("disabled_checkbox");
 
   var temp = time; //コピー用データの格納
-  for (var i = 0; i < ans_text.length; i++) {
+  for (var i = 0; i < ans_text_num.length; i++) {
     if (check_images[i].checked == true) {
       //画像のチェックをつけていたら
       temp += "/" + check_images[i].name + ": "; //間にスラッシュを入れてつなげる
