@@ -51,7 +51,7 @@ function stopCheck() {
   // var inputElement = document.querySelector('input[name="answer1"]');
   // inputElement.disabled = true;
   // 回答終了後に編集不可にする
-  var inputElement = document.querySelectorAll("input.Inputfield");
+  var inputElement = document.querySelectorAll("input.Inputfield_num");
   for (var i = 0; i < ans_text_num.length; i++) {
     inputElement[i].disabled = true;
   }
