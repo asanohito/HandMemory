@@ -52,7 +52,7 @@ function stopCheck() {
   // inputElement.disabled = true;
   // 回答終了後に編集不可にする
   var inputElement = document.querySelectorAll("input.Inputfield");
-  for (var i = 0; i < ans_text.length; i++) {
+  for (var i = 0; i < ans_text_num.length; i++) {
     inputElement[i].disabled = true;
   }
 
