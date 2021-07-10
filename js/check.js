@@ -17,23 +17,18 @@ function stopCheck() {
   clearInterval(myInterval);
 
   var time = document.answerForm.myFormTime.value;
-  // //Inputfieldクラスを持つもの(回答1~10)を配列にいれる
-  // var ans_text = document.getElementsByClassName("Inputfield");
   //Inputfield_numクラスを持つもの(回答1~10)を配列にいれる
   var ans_text_num = document.getElementsByClassName("Inputfield_num");
   //disabled_checkboxクラスを持つもの(画像選択)を配列にいれる
   var check_images = document.getElementsByClassName("disabled_checkbox");
 
   var temp = time; //コピー用データの格納
-  for (var i = 0; i < ans_text_num.length; i++) {
+  for (var i = 0; i < ans_text.length; i++) {
     if (check_images[i].checked == true) {
       //画像のチェックをつけていたら
       temp += "/" + check_images[i].name + ": "; //間にスラッシュを入れてつなげる
     }
-    // if (ans_text[i].value.length > 0) {
-    //   //テキストが入力されていたら
-    //   temp += ans_text[i].name + "( " + ans_text[i].value + " )"; //間にスラッシュを入れてつなげる
-    // }
+
     if (ans_text_num[i].value.length > 0) {
       //テキストが入力されていたら
       temp += ans_text_num[i].name + "( " + ans_text_num[i].value + " )"; //間にスラッシュを入れてつなげる
@@ -51,8 +46,8 @@ function stopCheck() {
   // var inputElement = document.querySelector('input[name="answer1"]');
   // inputElement.disabled = true;
   // 回答終了後に編集不可にする
-  var inputElement = document.querySelectorAll("input.Inputfield_num");
-  for (var i = 0; i < ans_text_num.length; i++) {
+  var inputElement = document.querySelectorAll("input.Inputfield");
+  for (var i = 0; i < ans_text.length; i++) {
     inputElement[i].disabled = true;
   }
 
