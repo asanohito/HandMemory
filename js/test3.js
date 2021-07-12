@@ -61,16 +61,16 @@ var touch_hand = false;
 // });
 
 function preload() {
-  images[0] = loadImage("images/man1.png");
-  images[1] = loadImage("images/woman2.png");
-  images[2] = loadImage("images/man5.png");
-  images[3] = loadImage("images/man2.png");
-  images[4] = loadImage("images/woman8.png");
-  images[5] = loadImage("images/man9.png");
-  images[6] = loadImage("images/woman9.png");
-  images[7] = loadImage("images/woman7.png");
-  images[8] = loadImage("images/man8.png");
-  images[9] = loadImage("images/woman4.png");
+  images[0] = loadImage("images/man12.png");
+  images[1] = loadImage("images/woman11.png");
+  images[2] = loadImage("images/man13.png");
+  images[3] = loadImage("images/man14.png");
+  images[4] = loadImage("images/woman13.png");
+  images[5] = loadImage("images/man22.png");
+  images[6] = loadImage("images/woman18.png");
+  images[7] = loadImage("images/man23.png");
+  images[8] = loadImage("images/woman22.png");
+  images[9] = loadImage("images/woman23.png");
 
   // Load the MediaPipe handpose model assets.
   handpose.load().then(function (_model) {

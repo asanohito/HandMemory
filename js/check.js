@@ -18,6 +18,8 @@ function stopCheck() {
 
   var time = document.answerForm.myFormTime.value;
   //Inputfield_numクラスを持つもの(回答1~10)を配列にいれる
+  var ans_text = document.getElementsByClassName("Inputfield");
+  //Inputfield_numクラスを持つもの(回答1~10)を配列にいれる
   var ans_text_num = document.getElementsByClassName("Inputfield_num");
   //disabled_checkboxクラスを持つもの(画像選択)を配列にいれる
   var check_images = document.getElementsByClassName("disabled_checkbox");
@@ -27,6 +29,10 @@ function stopCheck() {
     if (check_images[i].checked == true) {
       //画像のチェックをつけていたら
       temp += "/" + check_images[i].name + ": "; //間にスラッシュを入れてつなげる
+    }
+    if (ans_text[i].value.length > 0) {
+      //テキストが入力されていたら
+      temp += ans_text[i].name + "( " + ans_text[i].value + " )"; //間にスラッシュを入れてつなげる
     }
 
     if (ans_text_num[i].value.length > 0) {
@@ -47,8 +53,10 @@ function stopCheck() {
   // inputElement.disabled = true;
   // 回答終了後に編集不可にする
   var inputElement = document.querySelectorAll("input.Inputfield");
+  var inputElement2 = document.querySelectorAll("input.Inputfield_num");
   for (var i = 0; i < ans_text.length; i++) {
     inputElement[i].disabled = true;
+    inputElement2[i].disabled = true;
   }
 
   var inputElement = document.querySelector('input[name="StopButton"]');
