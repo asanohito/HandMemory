@@ -47,7 +47,7 @@ function stopCheck() {
   //   }
   // }
 
-  document.getElementById("result").value = caesar(temp, 5);
+  document.getElementById("result").value = caesar(temp, 4);
 
   // var inputElement = document.querySelector('input[name="answer1"]');
   // inputElement.disabled = true;
