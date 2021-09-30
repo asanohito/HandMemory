@@ -1,3 +1,4 @@
+// 右手親指1 + 左手小指6
 /*
  * https://editor.p5js.org/LingDong-/sketches/1viPqbRMv
  */
@@ -14,32 +15,38 @@ var myHands = []; // hands detected by mediapipe
 
 var capture; // webcam capture, managed by p5.js
 
+var dis_w = 1400; //iPad Pro 12.9インチ(2732×2048)
+var dis_h = 900;
+
 //画像
-let images = [];
+let images = []; //暗記画像
+
+//暗記文字
+let finger_text = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
 //フレーム間の平均
-let avr_1x = new Array(4);
-let avr_2x = new Array(4);
-let avr_3x = new Array(4);
-let avr_4x = new Array(4);
-let avr_5x = new Array(4);
+let avr_1x = new Array(6);
+let avr_2x = new Array(6);
+let avr_3x = new Array(6);
+let avr_4x = new Array(6);
+let avr_5x = new Array(6);
 
-let avr_1y = new Array(4);
-let avr_2y = new Array(4);
-let avr_3y = new Array(4);
-let avr_4y = new Array(4);
-let avr_5y = new Array(4);
+let avr_1y = new Array(6);
+let avr_2y = new Array(6);
+let avr_3y = new Array(6);
+let avr_4y = new Array(6);
+let avr_5y = new Array(6);
 
-let avr_6x = new Array(4);
-let avr_7x = new Array(4);
-let avr_8x = new Array(4);
-let avr_9x = new Array(4);
-let avr_10x = new Array(4);
-let avr_6y = new Array(4);
-let avr_7y = new Array(4);
-let avr_8y = new Array(4);
-let avr_9y = new Array(4);
-let avr_10y = new Array(4);
+let avr_6x = new Array(6);
+let avr_7x = new Array(6);
+let avr_8x = new Array(6);
+let avr_9x = new Array(6);
+let avr_10x = new Array(6);
+let avr_6y = new Array(6);
+let avr_7y = new Array(6);
+let avr_8y = new Array(6);
+let avr_9y = new Array(6);
+let avr_10y = new Array(6);
 
 //右手か左手か
 var right_hand = true;
@@ -47,23 +54,30 @@ var right_hand = true;
 var touch_hand = false;
 
 // Load the MediaPipe handpose model assets.
-handpose.load().then(function (_model) {
-  // console.log("model initialized.")
-  statusText = "Model loaded.";
-  handposeModel = _model;
-});
+// handpose.load().then(function (_model) {
+//   // console.log("model initialized.")
+//   statusText = "Model loaded.";
+//   handposeModel = _model;
+// });
 
 function preload() {
-  images[0] = loadImage("images/ADL.png");
-  images[1] = loadImage("images/ALL.png");
-  images[2] = loadImage("images/GBL.png");
-  images[3] = loadImage("images/IEL.png");
-  images[4] = loadImage("images/ISL.png");
-  images[5] = loadImage("images/ITL.png");
-  images[6] = loadImage("images/EEL.png");
-  images[7] = loadImage("images/ATL.png");
-  images[8] = loadImage("images/NLL.png");
-  images[9] = loadImage("images/MKL.png");
+  images[0] = loadImage("images/man1.png");
+  images[1] = loadImage("images/woman2.png");
+  images[2] = loadImage("images/man5.png");
+  images[3] = loadImage("images/man2.png");
+  images[4] = loadImage("images/woman8.png");
+  images[5] = loadImage("images/man9.png");
+  images[6] = loadImage("images/woman9.png");
+  images[7] = loadImage("images/woman7.png");
+  images[8] = loadImage("images/man8.png");
+  images[9] = loadImage("images/woman4.png");
+
+  // Load the MediaPipe handpose model assets.
+  handpose.load().then(function (_model) {
+    // console.log("model initialized.")
+    statusText = "Model loaded.";
+    handposeModel = _model;
+  });
 }
 /*
 window.onload = function() {
@@ -72,17 +86,17 @@ window.onload = function() {
 };*/
 
 function setup() {
-  let constraints = {
-    video: {
-      mandatory: {
-        // minWidth: 1280,
-        // minHeight: 720,
-      },
-      facingMode: { exact: "environment" },
-    },
-  };
+  // let constraints = {
+  //   video: {
+  //     mandatory: {
+  //       // minWidth: 1280,
+  //       // minHeight: 720,
+  //     },
+  //     facingMode: { exact: "environment" },
+  //   },
+  // };
 
-  capture = createCapture(constraints);
+  capture = createCapture(VIDEO);
 
   // this is to make sure the capture is loaded before asking handpose to take a look
   // otherwise handpose will be very unhappy
@@ -90,21 +104,26 @@ function setup() {
     // console.log("video initialized");
     videoDataLoaded = true;
     // createCanvas(capture.width, capture.height);
-    createCanvas(980, 482); //スマホ横にしたときの可視領域
+    createCanvas(dis_w, dis_h); //スマホ横にしたときの可視領域
     console.log(capture.width, capture.height);
   };
 
   capture.hide();
 
   textSize(100);
-  
+
   fill(100);
-  rect(0, 0, 170, 482);
-  rect(810, 0, 170, 482);
+  rect(0, 0, 90, dis_h);
+  rect(1290, 0, 90, dis_h);
 }
 
-document.addEventListener('touchmove', function(e) {e.preventDefault();}, {passive: false});
-
+document.addEventListener(
+  "touchmove",
+  function (e) {
+    e.preventDefault();
+  },
+  { passive: false }
+);
 
 // function changehand() {
 //   right_hand = !right_hand;
@@ -116,25 +135,28 @@ document.addEventListener('touchmove', function(e) {e.preventDefault();}, {passi
 // }
 
 function touchStarted() {
-  if (mouseX < 170) {
+  if (mouseX < 300) {
     touch_hand = true;
     right_hand = false;
     fill(80);
-    rect(0, 0, 170, 482);
-    rect(810, 0, 170, 482);
-  } else if (mouseX > 810) {
+    noStroke();
+    rect(0, 0, 90, dis_h);
+    rect(1290, 0, 90, dis_h);
+  } else if (mouseX > 1100) {
     touch_hand = true;
     right_hand = true;
     fill(80);
-    rect(0, 0, 170, 482);
-    rect(810, 0, 170, 482);
+    noStroke();
+    rect(0, 0, 90, dis_h);
+    rect(1290, 0, 90, dis_h);
   }
 }
 function touchEnded() {
   touch_hand = false;
   fill(100);
-  rect(0, 0, 170, 482);
-  rect(810, 0, 170, 482);
+  noStroke();
+  rect(0, 0, 90, dis_h);
+  rect(1290, 0, 90, dis_h);
 }
 
 //配列の平均
@@ -143,7 +165,7 @@ const sumArray = (array) => {
   for (let i = 0, len = array.length; i < len; i++) {
     sum += array[i];
   }
-  return sum / 4;
+  return sum / 6;
 };
 /*
 // タッチデバイスの情報
@@ -178,85 +200,146 @@ function drawShape(hands) {
       var [x, y, z] = landmarks[j]; //指の位置座標取得
       // x = x*2.1;
       // y = y*2.1;
-      if (touch_hand) {
+      var adjustment = 1.875; //画面サイズに合わせて暗記項目の配置を調整
+      if (!touch_hand) {
         if (j == 4) {
           //配列の先頭を削除、末尾に追加
           avr_1x.shift();
           avr_1y.shift();
           avr_1x.push(x);
           avr_1y.push(y);
-          x = sumArray(avr_1x) + 170;
-          y = sumArray(avr_1y);
-          if (right_hand) {
-            image(images[0], x - 30, y - 30, 50, 30);
-            text("アンドラ", x - 30, y + 10);
+          x = adjustment * sumArray(avr_1x) + 90;
+          y = adjustment * sumArray(avr_1y) + 50;
+          if (!right_hand) {
+            image(images[0], x - 60, y - 100, 100, 100);
+            // text(finger_text[0], x - 10, y + 10);
           } else {
-            image(images[5], x - 30, y - 30, 50, 30);
-            text("イタリア", x - 30, y + 10);
+            image(images[9], x - 60, y - 100, 100, 100);
+            // text(finger_text[9], x - 10, y + 10);
           }
         }
-        
+
         if (j == 8) {
           avr_2x.shift();
           avr_2y.shift();
           avr_2x.push(x);
           avr_2y.push(y);
-          x = sumArray(avr_2x) + 170;
-          y = sumArray(avr_2y);
-          if (right_hand) {
-            image(images[1], x - 30, y - 30, 50, 30);
-            text("アルバニア", x - 30, y + 10);
+          x = adjustment * sumArray(avr_2x) + 90;
+          y = adjustment * sumArray(avr_2y) + 50;
+          if (!right_hand) {
+            image(images[1], x - 60, y - 100, 100, 100);
+            // text(finger_text[1], x - 30, y + 10);
           } else {
-            image(images[6], x - 30, y - 30, 50, 30);
-            text("エストニア", x - 30, y + 10);
+            image(images[8], x - 60, y - 100, 100, 100);
+            // text(finger_text[8], x - 10, y + 10);
           }
         }
-        
+
         if (j == 12) {
           avr_3x.shift();
           avr_3y.shift();
           avr_3x.push(x);
           avr_3y.push(y);
-          x = sumArray(avr_3x) + 170;
-          y = sumArray(avr_3y);
-          if (right_hand) {
-            image(images[2], x - 30, y - 30, 50, 30);
-            text("イギリス", x - 30, y + 10);
+          x = adjustment * sumArray(avr_3x) + 90;
+          y = adjustment * sumArray(avr_3y) + 50;
+          if (!right_hand) {
+            image(images[2], x - 60, y - 100, 100, 100);
+            // text(finger_text[2], x - 10, y + 10);
           } else {
-            image(images[7], x - 30, y - 30, 50, 30);
-            text("オーストリア", x - 30, y + 10);
+            image(images[7], x - 60, y - 100, 100, 100);
+            // text(finger_text[7], x - 10, y + 10);
           }
         }
-       
+
         if (j == 16) {
           avr_4x.shift();
           avr_4y.shift();
           avr_4x.push(x);
           avr_4y.push(y);
-          x = sumArray(avr_4x) + 170;
-          y = sumArray(avr_4y);
-          if (right_hand) {
-            image(images[3], x - 30, y - 30, 50, 30);
-            text("アイルランド", x - 30, y + 10);
+          x = adjustment * sumArray(avr_4x) + 90;
+          y = adjustment * sumArray(avr_4y) + 50;
+          if (!right_hand) {
+            image(images[3], x - 60, y - 100, 100, 100);
+            // text(finger_text[3], x - 10, y + 10);
           } else {
-            image(images[8], x - 30, y - 30, 50, 30);
-            text("オランダ", x - 30, y + 10);
+            image(images[6], x - 60, y - 100, 100, 100);
+            // text(finger_text[6], x - 10, y + 10);
           }
         }
-        
+
         if (j == 20) {
           avr_5x.shift();
           avr_5y.shift();
           avr_5x.push(x);
           avr_5y.push(y);
-          x = sumArray(avr_5x) + 170;
-          y = sumArray(avr_5y);
-          if (right_hand) {
-            image(images[4], x - 30, y - 30, 50, 30);
-            text("アイスランド", x - 30, y + 10);
+          x = adjustment * sumArray(avr_5x) + 90;
+          y = adjustment * sumArray(avr_5y) + 50;
+          if (!right_hand) {
+            image(images[4], x - 60, y - 100, 100, 100);
+            // text(finger_text[4], x - 30, y + 10);
           } else {
-            image(images[9], x - 30, y - 30, 50, 30);
-            text("北マケドニア", x - 30, y + 10);
+            image(images[5], x - 60, y - 100, 100, 100);
+            // text(finger_text[5], x - 30, y + 10);
+          }
+        }
+        if (j == 2) {
+          avr_6x.shift();
+          avr_6y.shift();
+          avr_6x.push(x);
+          avr_6y.push(y);
+          x = adjustment * sumArray(avr_6x) + 90;
+          y = adjustment * sumArray(avr_6y) + 50;
+          if (!right_hand) {
+            image(images[5], x - 60, y - 100, 100, 100);
+            // text(finger_text[4], x - 30, y + 10);
+          }
+        }
+        if (j == 5) {
+          avr_7x.shift();
+          avr_7y.shift();
+          avr_7x.push(x);
+          avr_7y.push(y);
+          x = adjustment * sumArray(avr_7x) + 90;
+          y = adjustment * sumArray(avr_7y) + 50;
+          if (!right_hand) {
+            image(images[6], x - 60, y - 100, 100, 100);
+            // text(finger_text[4], x - 30, y + 10);
+          }
+        }
+        if (j == 9) {
+          avr_8x.shift();
+          avr_8y.shift();
+          avr_8x.push(x);
+          avr_8y.push(y);
+          x = adjustment * sumArray(avr_8x) + 90;
+          y = adjustment * sumArray(avr_8y) + 50;
+          if (!right_hand) {
+            image(images[7], x - 60, y - 100, 100, 100);
+            // text(finger_text[4], x - 30, y + 10);
+          }
+        }
+        if (j == 13) {
+          avr_9x.shift();
+          avr_9y.shift();
+          avr_9x.push(x);
+          avr_9y.push(y);
+          x = adjustment * sumArray(avr_9x) + 90;
+          y = adjustment * sumArray(avr_9y) + 50;
+          if (!right_hand) {
+            image(images[8], x - 60, y - 100, 100, 100);
+            // text(finger_text[4], x - 30, y + 10);
+          }
+        }
+        if (j == 17) {
+          avr_10x.shift();
+          avr_10y.shift();
+          avr_10x.push(x);
+          avr_10y.push(y);
+          x = adjustment * sumArray(avr_10x) + 90;
+          y = adjustment * sumArray(avr_10y) + 50;
+          if (!right_hand) {
+            image(images[9], x - 60, y - 100, 100, 100);
+            // text(finger_text[4], x - 30, y + 10);
           }
         }
       }
@@ -285,31 +368,34 @@ function draw() {
           Math.round(myHands[0].handInViewConfidence * 1000) / 1000;
       }
     });
-  }
+    //   }
 
-  // background(200);
+    // background(200);
 
-  // first draw the debug video and annotations
-  push();
-  image(img, 170, 0);
-  fill(255, 0, 0, 80);
-  stroke(255);
-  strokeWeight(3);
-  drawShape(myHands); // draw my hand skeleton
-  pop();
-
-  if (touch_hand == true) {
+    // first draw the debug video and annotations
+    push();
+    noStroke();
     fill(80);
-  } else {
-    fill(100);
-  }
-  nostroke();
-  rect(0, 0, 170, 482);
-  rect(810, 0, 170, 482);
-
-  /*
+    rect(0, 0, dis_w, dis_h);
+    image(img, 90, 50, 1200, 900);
+    fill(255, 0, 0, 80);
+    stroke(255);
+    strokeWeight(3);
+    textSize(20);
+    drawShape(myHands); // draw my hand skeleton
+    pop();
+    if (touch_hand == true) {
+      fill(80);
+    } else {
+      fill(100);
+    }
+    noStroke();
+    rect(0, 0, 90, dis_h);
+    rect(1290, 0, 90, dis_h);
+    /*
   push();
   fill(255, 255, 0);
   text(statusText, 2, 60);
   pop();*/
+  }
 }
