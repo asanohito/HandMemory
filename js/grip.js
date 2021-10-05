@@ -96,7 +96,7 @@ function setup() {
     video: {
       width: { min: 1280 },
       height: { min: 720 },
-      // facingMode: { exact: "environment" },
+      facingMode: { exact: "environment" },
     },
   };
 
