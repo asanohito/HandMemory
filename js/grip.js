@@ -27,7 +27,18 @@ const right_space = 1323; //64
 let images = []; //暗記画像
 
 //暗記文字
-let finger_text = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
+let finger_text = [
+  "佐藤",
+  "鈴木",
+  "高橋",
+  "田中",
+  "伊藤",
+  "渡辺",
+  "山本",
+  "中村",
+  "小林",
+  "加藤",
+];
 
 //フレーム間の平均
 let avr_0x = new Array(6);
@@ -94,7 +105,7 @@ window.onload = function() {
 function setup() {
   let constraints = {
     video: {
-      width: { min: 1280 },
+      width: { min: 1280 }, //映像は1280*720
       height: { min: 720 },
       facingMode: { exact: "environment" },
     },
@@ -194,7 +205,8 @@ function handle_touch(event) {
 
 // draw a hand object returned by handpose
 function drawShape(hands) {
-  fill(255, 0, 0);
+  fill(0, 0, 255);
+  textAlign(CENTER, CENTER);
   // Each hand object contains a `landmarks` property,
   // which is an array of 21 3-D landmarks.
   for (var i = 0; i < hands.length; i++) {
@@ -215,8 +227,8 @@ function drawShape(hands) {
           x = adjustment * sumArray(avr_0x) + left_space;
           y = adjustment * sumArray(avr_0y) + top_space;
 
-          image(images[0], x - 40, y - 50, 80, 100);
-          // text(finger_text[0], x - 10, y + 10);
+          image(images[0], x - 40, y - 30, 80, 100);
+          text(finger_text[0], x, y + 75);
         }
 
         if (j == 8) {
@@ -226,8 +238,8 @@ function drawShape(hands) {
           avr_1y.push(y);
           x = adjustment * sumArray(avr_1x) + left_space;
           y = adjustment * sumArray(avr_1y) + top_space;
-          image(images[1], x - 40, y - 50, 80, 100);
-          // text(finger_text[1], x - 30, y + 10);
+          image(images[1], x - 40, y - 30, 80, 100);
+          text(finger_text[1], x, y + 75);
         }
 
         if (j == 12) {
@@ -237,8 +249,8 @@ function drawShape(hands) {
           avr_2y.push(y);
           x = adjustment * sumArray(avr_2x) + left_space;
           y = adjustment * sumArray(avr_2y) + top_space;
-          image(images[2], x - 40, y - 50, 80, 100);
-          // text(finger_text[2], x - 10, y + 10);
+          image(images[2], x - 40, y - 30, 80, 100);
+          text(finger_text[2], x, y + 75);
         }
 
         if (j == 16) {
@@ -248,8 +260,8 @@ function drawShape(hands) {
           avr_3y.push(y);
           x = adjustment * sumArray(avr_3x) + left_space;
           y = adjustment * sumArray(avr_3y) + top_space;
-          image(images[3], x - 40, y - 50, 80, 100);
-          // text(finger_text[3], x - 10, y + 10);
+          image(images[3], x - 40, y - 30, 80, 100);
+          text(finger_text[3], x, y + 75);
         }
 
         if (j == 20) {
@@ -259,8 +271,8 @@ function drawShape(hands) {
           avr_4y.push(y);
           x = adjustment * sumArray(avr_4x) + left_space;
           y = adjustment * sumArray(avr_4y) + top_space;
-          image(images[4], x - 40, y - 50, 80, 100);
-          // text(finger_text[4], x - 30, y + 10);
+          image(images[4], x - 40, y - 30, 80, 100);
+          text(finger_text[4], x, y + 75);
         }
         if (j == 2) {
           avr_5x.shift();
@@ -270,7 +282,7 @@ function drawShape(hands) {
           x = adjustment * sumArray(avr_5x) + left_space;
           y = adjustment * sumArray(avr_5y) + top_space;
           image(images[5], x - 40, y - 50, 80, 100);
-          // text(finger_text[4], x - 30, y + 10);
+          text(finger_text[5], x, y + 55);
         }
         if (j == 5) {
           avr_6x.shift();
@@ -279,8 +291,8 @@ function drawShape(hands) {
           avr_6y.push(y);
           x = adjustment * sumArray(avr_6x) + left_space;
           y = adjustment * sumArray(avr_6y) + top_space;
-          image(images[6], x - 40, y - 50, 80, 100);
-          // text(finger_text[4], x - 30, y + 10);
+          image(images[6], x - 50, y - 50, 80, 100);
+          text(finger_text[6], x - 10, y + 55);
         }
         if (j == 17) {
           avr_7x.shift();
@@ -289,8 +301,8 @@ function drawShape(hands) {
           avr_7y.push(y);
           x = adjustment * sumArray(avr_7x) + left_space;
           y = adjustment * sumArray(avr_7y) + top_space;
-          image(images[7], x - 40, y - 50, 80, 100);
-          // text(finger_text[4], x - 30, y + 10);
+          image(images[7], x - 30, y - 50, 80, 100);
+          text(finger_text[7], x + 10, y + 55);
         }
         if (j == 13) {
           center_x =
@@ -304,7 +316,7 @@ function drawShape(hands) {
           x = adjustment * sumArray(avr_8x) + left_space;
           y = adjustment * sumArray(avr_8y) + top_space;
           image(images[8], x - 40, y - 80, 80, 100);
-          // text(finger_text[4], x - 30, y + 10);
+          text(finger_text[8], x, y + 25);
         }
         if (j == 0) {
           avr_9x.shift();
@@ -313,8 +325,8 @@ function drawShape(hands) {
           avr_9y.push(y);
           x = adjustment * sumArray(avr_9x) + left_space;
           y = adjustment * sumArray(avr_9y) + top_space;
-          image(images[9], x - 40, y - 50, 80, 100);
-          // text(finger_text[4], x - 30, y + 10);
+          image(images[9], x - 40, y - 70, 80, 100);
+          text(finger_text[9], x, y + 35);
         }
       }
     }
