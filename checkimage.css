@@ -71,6 +71,18 @@ input:hover {
   background-color: #064fda; /* 背景色 */
 }
 
+input.username {
+  border: 0.15em solid #adbbc7; /* 枠線 */
+  border-radius: 0.27em; /* 角丸 */
+  padding: 0.5em; /* 内側の余白量 */
+  background-color: rgb(255, 255, 255); /* 背景色 */
+  width: 10em; /* 横幅 */
+  height: auto; /* 高さ */
+  font-size: 1em; /* 文字サイズ */
+  margin: 0.5em 0em 0em 0em; /* 前後の隙間 */
+  color: #000; /* テキストカラー */
+}
+
 input.Inputfield {
   border: 0.15em solid #adbbc7; /* 枠線 */
   border-radius: 0.27em; /* 角丸 */
@@ -100,7 +112,7 @@ table.image_table td {
   display: inline-block;
 }
 table.image_table td .image_box {
-  width: 200px;
+  width: 160px;
   height: 200px;
   /* チェックボックスの親要素にrelativeを指定しておきます。 */
   position: relative;

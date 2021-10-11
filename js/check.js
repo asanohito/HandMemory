@@ -17,6 +17,8 @@ function stopCheck() {
   clearInterval(myInterval);
 
   var time = document.answerForm.myFormTime.value;
+  //回答者の名前取得
+  var username = document.getElementById("username").value;
   //Inputfield_numクラスを持つもの(回答1~10)を配列にいれる
   var ans_text = document.getElementsByClassName("Inputfield");
   //Inputfield_numクラスを持つもの(回答1~10)を配列にいれる
@@ -24,7 +26,7 @@ function stopCheck() {
   //disabled_checkboxクラスを持つもの(画像選択)を配列にいれる
   var check_images = document.getElementsByClassName("disabled_checkbox");
 
-  var temp = time; //コピー用データの格納
+  var temp = time + "/" + username; //コピー用データの格納
   for (var i = 0; i < ans_text.length; i++) {
     if (check_images[i].checked == true) {
       //画像のチェックをつけていたら
@@ -47,7 +49,8 @@ function stopCheck() {
   //   }
   // }
 
-  document.getElementById("result").value = caesar(temp, 3);
+  // document.getElementById("result").value = caesar(temp, 3);//暗号化してresultフォームに入力
+  document.getElementById("result").value = temp;
 
   // var inputElement = document.querySelector('input[name="answer1"]');
   // inputElement.disabled = true;
