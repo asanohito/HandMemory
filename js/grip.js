@@ -28,16 +28,16 @@ let images = []; //暗記画像
 
 //暗記文字
 let finger_text = [
-  "佐藤",
-  "鈴木",
-  "高橋",
-  "田中",
-  "伊藤",
-  "渡辺",
-  "山本",
-  "中村",
-  "小林",
-  "加藤",
+  "1.川端すばる",
+  "2.山田まい",
+  "3.大野むつき",
+  "4.遠藤ひびき",
+  "5.鈴木たかひろ",
+  "6.北野ももえ",
+  "7.松本はな",
+  "8.木瀬てつや",
+  "9.中原もえか",
+  "10.津田けいすけ",
 ];
 
 //フレーム間の平均
@@ -78,16 +78,16 @@ var touch_hand = false;
 // });
 
 function preload() {
-  images[0] = loadImage("images/MISSCOLE/miss0.jpeg");
-  images[1] = loadImage("images/MISSCOLE/miss1.jpeg");
-  images[2] = loadImage("images/MISSCOLE/miss2.jpeg");
-  images[3] = loadImage("images/MISSCOLE/miss3.jpeg");
-  images[4] = loadImage("images/MISSCOLE/miss4.jpeg");
-  images[5] = loadImage("images/MISSCOLE/mr0.jpeg");
-  images[6] = loadImage("images/MISSCOLE/mr1.jpeg");
-  images[7] = loadImage("images/MISSCOLE/mr2.jpeg");
-  images[8] = loadImage("images/MISSCOLE/mr3.jpeg");
-  images[9] = loadImage("images/MISSCOLE/mr4.jpeg");
+  images[0] = loadImage("images/MISSCOLE/mr4.jpeg");
+  images[1] = loadImage("images/MISSCOLE/miss10.jpeg");
+  images[2] = loadImage("images/MISSCOLE/miss4.jpeg");
+  images[3] = loadImage("images/MISSCOLE/mr0.jpeg");
+  images[4] = loadImage("images/MISSCOLE/mr13.jpeg");
+  images[5] = loadImage("images/MISSCOLE/miss2.jpeg");
+  images[6] = loadImage("images/MISSCOLE/miss0.jpeg");
+  images[7] = loadImage("images/MISSCOLE/mr14.jpeg");
+  images[8] = loadImage("images/MISSCOLE/miss14.jpeg");
+  images[9] = loadImage("images/MISSCOLE/mr1.jpeg");
 
   // Load the MediaPipe handpose model assets.
   handpose.load().then(function (_model) {
