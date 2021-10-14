@@ -7,7 +7,7 @@ body {
   font: 1.4em "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", "ＭＳ Ｐゴシック",
     "MS PGothic", Verdana, Arial, sans-serif;
   margin: 0;
-  /* color: #313131; */
+  /* color: blue; */
   line-height: 2em;
   text-align: center;
 }
@@ -36,6 +36,7 @@ table {
 
 td {
   height: 140px;
+  color: blue;
 }
 .number {
   width: 30px;
