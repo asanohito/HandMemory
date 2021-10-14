@@ -205,7 +205,7 @@ function handle_touch(event) {
 
 // draw a hand object returned by handpose
 function drawShape(hands) {
-  fill(0, 0, 255);
+  fill(0, 0, 255); //文字の色
   textAlign(CENTER, CENTER);
   // Each hand object contains a `landmarks` property,
   // which is an array of 21 3-D landmarks.
@@ -294,30 +294,30 @@ function drawShape(hands) {
           image(images[6], x - 50, y - 50, 80, 100);
           text(finger_text[6], x - 10, y + 55);
         }
-        if (j == 17) {
+
+        if (j == 13) {
+          center_x = (landmarks[9][0] + landmarks[13][0]) / 2.0;
+          center_y = (landmarks[9][1] + landmarks[13][1]) / 2.0;
           avr_7x.shift();
           avr_7y.shift();
-          avr_7x.push(x);
-          avr_7y.push(y);
+          avr_7x.push(center_x);
+          avr_7y.push(center_y);
           x = adjustment * sumArray(avr_7x) + left_space;
           y = adjustment * sumArray(avr_7y) + top_space;
-          image(images[7], x - 30, y - 50, 80, 100);
-          text(finger_text[7], x + 10, y + 55);
+          image(images[7], x - 40, y - 50, 80, 100);
+          text(finger_text[7], x, y + 55);
         }
-        if (j == 13) {
-          center_x =
-            (landmarks[0][0] + landmarks[9][0] + landmarks[13][0]) / 3.0;
-          center_y =
-            (landmarks[0][1] + landmarks[9][1] + landmarks[13][1]) / 3.0;
+        if (j == 17) {
           avr_8x.shift();
           avr_8y.shift();
-          avr_8x.push(center_x);
-          avr_8y.push(center_y);
+          avr_8x.push(x);
+          avr_8y.push(y);
           x = adjustment * sumArray(avr_8x) + left_space;
           y = adjustment * sumArray(avr_8y) + top_space;
-          image(images[8], x - 40, y - 80, 80, 100);
-          text(finger_text[8], x, y + 25);
+          image(images[8], x - 30, y - 50, 80, 100);
+          text(finger_text[8], x + 10, y + 55);
         }
+
         if (j == 0) {
           avr_9x.shift();
           avr_9y.shift();
@@ -364,10 +364,10 @@ function draw() {
     fill(80);
     rect(0, 0, dis_w, dis_h);
     image(img, left_space, top_space, 1280, 720);
-    fill(255, 0, 0, 80);
+    // fill(255, 0, 0, 80);
     stroke(255);
-    strokeWeight(3);
-    textSize(20);
+    strokeWeight(1);
+    textSize(15);
     drawShape(myHands); // draw my hand skeleton
     pop();
     if (touch_hand == true) {
