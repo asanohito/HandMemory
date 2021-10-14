@@ -325,8 +325,8 @@ function drawShape(hands) {
           avr_9y.push(y);
           x = adjustment * sumArray(avr_9x) + left_space;
           y = adjustment * sumArray(avr_9y) + top_space;
-          image(images[9], x - 40, y - 70, 80, 100);
-          text(finger_text[9], x, y + 35);
+          image(images[9], x - 40, y - 100, 80, 100);
+          text(finger_text[9], x, y + 5);
         }
       }
     }
