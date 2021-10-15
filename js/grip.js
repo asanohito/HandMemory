@@ -238,8 +238,8 @@ function drawShape(hands) {
           avr_1y.push(y);
           x = adjustment * sumArray(avr_1x) + left_space;
           y = adjustment * sumArray(avr_1y) + top_space;
-          image(images[1], x - 40, y - 30, 80, 100);
-          text(finger_text[1], x, y + 75);
+          image(images[1], x - 40, y - 20, 80, 100);
+          text(finger_text[1], x, y + 85);
         }
 
         if (j == 12) {
@@ -249,8 +249,8 @@ function drawShape(hands) {
           avr_2y.push(y);
           x = adjustment * sumArray(avr_2x) + left_space;
           y = adjustment * sumArray(avr_2y) + top_space;
-          image(images[2], x - 40, y - 30, 80, 100);
-          text(finger_text[2], x, y + 75);
+          image(images[2], x - 40, y - 20, 80, 100);
+          text(finger_text[2], x, y + 85);
         }
 
         if (j == 16) {
@@ -260,8 +260,8 @@ function drawShape(hands) {
           avr_3y.push(y);
           x = adjustment * sumArray(avr_3x) + left_space;
           y = adjustment * sumArray(avr_3y) + top_space;
-          image(images[3], x - 40, y - 30, 80, 100);
-          text(finger_text[3], x, y + 75);
+          image(images[3], x - 40, y - 20, 80, 100);
+          text(finger_text[3], x, y + 85);
         }
 
         if (j == 20) {
@@ -325,8 +325,8 @@ function drawShape(hands) {
           avr_9y.push(y);
           x = adjustment * sumArray(avr_9x) + left_space;
           y = adjustment * sumArray(avr_9y) + top_space;
-          image(images[9], x - 40, y - 100, 80, 100);
-          text(finger_text[9], x, y + 5);
+          image(images[9], x - 40, y - 110, 80, 100);
+          text(finger_text[9], x, y - 5);
         }
       }
     }
