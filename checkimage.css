@@ -106,6 +106,19 @@ input.Inputfield_num {
   color: #000; /* テキストカラー */
 }
 
+/* 画像なし記入用 */
+input.Inputfield_imgless {
+  border: 0.15em solid #adbbc7; /* 枠線 */
+  border-radius: 0.27em; /* 角丸 */
+  padding: 0.5em; /* 内側の余白量 */
+  background-color: rgb(255, 255, 255); /* 背景色 */
+  width: 7em; /* 横幅 */
+  height: auto; /* 高さ */
+  font-size: 1em; /* 文字サイズ */
+  margin: 0.5em 0em 0em 0em; /* 前後の隙間 */
+  color: #000; /* テキストカラー */
+}
+
 /* 画像選択について */
 table.image_table td {
   /* liが横並びになるようにします。 */

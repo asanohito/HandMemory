@@ -26,6 +26,8 @@ function stopCheck() {
   //disabled_checkboxクラスを持つもの(画像選択)を配列にいれる
   var check_images = document.getElementsByClassName("disabled_checkbox");
 
+  var imgless = document.getElementsByClassName("Inputfield_imgless");
+
   var temp = time + "/" + username; //コピー用データの格納
   for (var i = 0; i < ans_text.length; i++) {
     if (check_images[i].checked == true) {
@@ -41,6 +43,11 @@ function stopCheck() {
       //テキストが入力されていたら
       temp += ans_text_num[i].name + "( " + ans_text_num[i].value + " )"; //間にスラッシュを入れてつなげる
     }
+
+    // if (imgless[i].length > 0) {
+    //   //テキストが入力されていたら
+    //   temp += imgless[i].name + "( " + imgless[i] + " )"; //間にスラッシュを入れてつなげる
+    // }
   }
 
   // for (var i = 0; i < check_images.length; i++) {
