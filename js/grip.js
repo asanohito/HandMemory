@@ -107,7 +107,7 @@ function setup() {
     video: {
       width: { min: 1280 }, //映像は1280*720
       height: { min: 720 },
-      facingMode: { exact: "environment" },
+      // facingMode: { exact: "environment" },
     },
   };
 
@@ -205,7 +205,6 @@ function handle_touch(event) {
 
 // draw a hand object returned by handpose
 function drawShape(hands) {
-  fill(0, 0, 255); //文字の色
   textAlign(CENTER, CENTER);
   // Each hand object contains a `landmarks` property,
   // which is an array of 21 3-D landmarks.
@@ -226,9 +225,11 @@ function drawShape(hands) {
           avr_0y.push(y);
           x = adjustment * sumArray(avr_0x) + left_space;
           y = adjustment * sumArray(avr_0y) + top_space;
-
+          fill(255); //文字背景の色
+          rect(x - 40, y - 30, 80, 120);
           image(images[0], x - 40, y - 30, 80, 100);
-          text(finger_text[0], x, y + 75);
+          fill(0, 0, 255); //文字の色
+          text(finger_text[0], x, y + 80);
         }
 
         if (j == 8) {
@@ -238,8 +239,11 @@ function drawShape(hands) {
           avr_1y.push(y);
           x = adjustment * sumArray(avr_1x) + left_space;
           y = adjustment * sumArray(avr_1y) + top_space;
+          fill(255); //文字背景の色
+          rect(x - 40, y - 20, 80, 120);
           image(images[1], x - 40, y - 20, 80, 100);
-          text(finger_text[1], x, y + 85);
+          fill(0, 0, 255); //文字の色
+          text(finger_text[1], x, y + 90);
         }
 
         if (j == 12) {
@@ -249,8 +253,11 @@ function drawShape(hands) {
           avr_2y.push(y);
           x = adjustment * sumArray(avr_2x) + left_space;
           y = adjustment * sumArray(avr_2y) + top_space;
+          fill(255); //文字背景の色
+          rect(x - 40, y - 20, 80, 120);
           image(images[2], x - 40, y - 20, 80, 100);
-          text(finger_text[2], x, y + 85);
+          fill(0, 0, 255); //文字の色
+          text(finger_text[2], x, y + 90);
         }
 
         if (j == 16) {
@@ -260,8 +267,11 @@ function drawShape(hands) {
           avr_3y.push(y);
           x = adjustment * sumArray(avr_3x) + left_space;
           y = adjustment * sumArray(avr_3y) + top_space;
+          fill(255); //文字背景の色
+          rect(x - 40, y - 20, 80, 120);
           image(images[3], x - 40, y - 20, 80, 100);
-          text(finger_text[3], x, y + 85);
+          fill(0, 0, 255); //文字の色
+          text(finger_text[3], x, y + 90);
         }
 
         if (j == 20) {
@@ -271,8 +281,11 @@ function drawShape(hands) {
           avr_4y.push(y);
           x = adjustment * sumArray(avr_4x) + left_space;
           y = adjustment * sumArray(avr_4y) + top_space;
+          fill(255); //文字背景の色
+          rect(x - 46, y - 30, 92, 120);
           image(images[4], x - 40, y - 30, 80, 100);
-          text(finger_text[4], x, y + 75);
+          fill(0, 0, 255); //文字の色
+          text(finger_text[4], x, y + 80);
         }
         if (j == 2) {
           avr_5x.shift();
@@ -281,8 +294,11 @@ function drawShape(hands) {
           avr_5y.push(y);
           x = adjustment * sumArray(avr_5x) + left_space;
           y = adjustment * sumArray(avr_5y) + top_space;
+          fill(255); //文字背景の色
+          rect(x - 40, y - 50, 80, 120);
           image(images[5], x - 40, y - 50, 80, 100);
-          text(finger_text[5], x, y + 55);
+          fill(0, 0, 255); //文字の色
+          text(finger_text[5], x, y + 60);
         }
         if (j == 5) {
           avr_6x.shift();
@@ -291,8 +307,11 @@ function drawShape(hands) {
           avr_6y.push(y);
           x = adjustment * sumArray(avr_6x) + left_space;
           y = adjustment * sumArray(avr_6y) + top_space;
+          fill(255); //文字背景の色
+          rect(x - 50, y - 50, 80, 120);
           image(images[6], x - 50, y - 50, 80, 100);
-          text(finger_text[6], x - 10, y + 55);
+          fill(0, 0, 255); //文字の色
+          text(finger_text[6], x - 10, y + 60);
         }
 
         if (j == 13) {
@@ -304,8 +323,11 @@ function drawShape(hands) {
           avr_7y.push(center_y);
           x = adjustment * sumArray(avr_7x) + left_space;
           y = adjustment * sumArray(avr_7y) + top_space;
+          fill(255); //文字背景の色
+          rect(x - 40, y - 50, 80, 120);
           image(images[7], x - 40, y - 50, 80, 100);
-          text(finger_text[7], x, y + 55);
+          fill(0, 0, 255); //文字の色
+          text(finger_text[7], x, y + 60);
         }
         if (j == 17) {
           avr_8x.shift();
@@ -314,8 +336,11 @@ function drawShape(hands) {
           avr_8y.push(y);
           x = adjustment * sumArray(avr_8x) + left_space;
           y = adjustment * sumArray(avr_8y) + top_space;
+          fill(255); //文字背景の色
+          rect(x - 30, y - 50, 80, 120);
           image(images[8], x - 30, y - 50, 80, 100);
-          text(finger_text[8], x + 10, y + 55);
+          fill(0, 0, 255); //文字の色
+          text(finger_text[8], x + 10, y + 60);
         }
 
         if (j == 0) {
@@ -325,8 +350,11 @@ function drawShape(hands) {
           avr_9y.push(y);
           x = adjustment * sumArray(avr_9x) + left_space;
           y = adjustment * sumArray(avr_9y) + top_space;
+          fill(255); //文字背景の色
+          rect(x - 48, y - 110, 96, 120);
           image(images[9], x - 40, y - 110, 80, 100);
-          text(finger_text[9], x, y - 5);
+          fill(0, 0, 255); //文字の色
+          text(finger_text[9], x, y);
         }
       }
     }
@@ -365,9 +393,9 @@ function draw() {
     rect(0, 0, dis_w, dis_h);
     image(img, left_space, top_space, 1280, 720);
     // fill(255, 0, 0, 80);
-    stroke(255);
+    // stroke(255);
     strokeWeight(1);
-    textSize(15);
+    textSize(13);
     drawShape(myHands); // draw my hand skeleton
     pop();
     if (touch_hand == true) {

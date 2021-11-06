@@ -28,7 +28,7 @@ function stopCheck() {
 
   var imgless = document.getElementsByClassName("Inputfield_imgless");
 
-  var temp = time + "/" + username; //コピー用データの格納
+  var temp = time + "/" + username + "/"; //コピー用データの格納
   for (var i = 0; i < ans_text.length; i++) {
     if (check_images[i].checked == true) {
       //画像のチェックをつけていたら
@@ -43,18 +43,14 @@ function stopCheck() {
       //テキストが入力されていたら
       temp += ans_text_num[i].name + "( " + ans_text_num[i].value + " )"; //間にスラッシュを入れてつなげる
     }
-
-    // if (imgless[i].length > 0) {
-    //   //テキストが入力されていたら
-    //   temp += imgless[i].name + "( " + imgless[i] + " )"; //間にスラッシュを入れてつなげる
-    // }
   }
-
-  // for (var i = 0; i < check_images.length; i++) {
-  //   if (check_images[i].checked == true) {
-  //     temp += "/" + check_images[i].name; //間にスラッシュを入れてつなげる
-  //   }
-  // }
+  for (var i = 0; i < imgless.length; i++) {
+    console.log(imgless[i].value);
+    if (imgless[i].value.length > 0) {
+      //テキストが入力されていたら
+      temp += "/" + imgless[i].name + "( " + imgless[i].value + " )"; //間にスラッシュを入れてつなげる
+    }
+  }
 
   // document.getElementById("result").value = caesar(temp, 3);//暗号化してresultフォームに入力
   document.getElementById("result").value = temp;
