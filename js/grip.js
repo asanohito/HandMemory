@@ -107,7 +107,7 @@ function setup() {
     video: {
       width: { min: 1280 }, //映像は1280*720
       height: { min: 720 },
-      // facingMode: { exact: "environment" },
+      facingMode: { exact: "environment" },
     },
   };
 
